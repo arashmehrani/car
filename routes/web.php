@@ -16,4 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MainController::class, 'login']);
 Route::get('/home', [MainController::class, 'index']);
 Route::get('/verify-number', [MainController::class, 'verify']);
+Route::get('/car-new', [MainController::class, 'carNew']);
+Route::get('/service-list', [MainController::class, 'serviceList']);
 

@@ -7,7 +7,7 @@
 
         <div class="element-heading">
             <div class="row gx-2 align-items-end">
-                <div class="col-4 text-end"><a class="btn btn-warning btn-sm mb-4 text-white" href="#">ماشین جدید </a>
+                <div class="col-4 text-end"><a class="btn btn-warning btn-sm mb-4 text-white" href="{{url('/car-new')}}">ماشین جدید </a>
                 </div>
                 <div class="col-8">
                     <div class="image-gallery-text mb-4">
@@ -57,7 +57,7 @@
 
                             </div>
                             <div class="d-flex align-items-start justify-content-start">
-                                <p class="mb-2"><a href="#" class="btn btn-primary btn-sm">افزودن سرویس جدید</a>
+                                <p class="mb-2"><a href="{{url('service-list')}}" class="btn btn-primary btn-sm">افزودن سرویس جدید</a>
                                 </p>
                             </div>
                         </div>

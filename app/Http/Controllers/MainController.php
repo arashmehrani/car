@@ -28,11 +28,11 @@ class MainController extends Controller
 
     public function carNew()
     {
-
+        return view('car-new');
     }
-
-    public function carList()
+    public function serviceList()
     {
-
+        return view('service-list');
     }
+
 }
