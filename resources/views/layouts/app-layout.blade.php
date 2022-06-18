@@ -97,7 +97,7 @@
                 <li><a href="{{url('/home')}}"><i class="bi bi-house-door"></i>خانه</a></li>
                 <li><a href="{{url('/service-list')}}"><i class="bi bi-tools"></i>ثبت سرویس</a></li>
                 <li><a href="{{url('/notifications')}}"><i class="bi bi-clock-history"></i>یاد آوری<span
-                            class="badge bg-danger rounded-pill ms-2">5</span></a></li>
+                            class="badge bg-danger rounded-pill ms-2">1</span></a></li>
                 <li><a href="{{url('/contact')}}"><i class="bi bi-life-preserver"></i>پشتیبانی</a></li>
                 <li><a href="{{url('/profile')}}"><i class="bi bi-person"></i>حساب کاربری</a></li>
                 <li>
