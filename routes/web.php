@@ -18,4 +18,8 @@ Route::get('/home', [MainController::class, 'index']);
 Route::get('/verify-number', [MainController::class, 'verify']);
 Route::get('/car-new', [MainController::class, 'carNew']);
 Route::get('/service-list', [MainController::class, 'serviceList']);
+Route::get('/notifications', [MainController::class, 'notifications']);
+Route::get('/notifications-details', [MainController::class, 'notificationsDetails']);
+Route::get('/contact', [MainController::class, 'contact']);
+Route::get('/profile', [MainController::class, 'profile']);
 

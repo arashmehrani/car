@@ -23,7 +23,7 @@ class MainController extends Controller
 
     public function profile()
     {
-
+        return view('profile');
     }
 
     public function carNew()
@@ -33,6 +33,18 @@ class MainController extends Controller
     public function serviceList()
     {
         return view('service-list');
+    }
+    public function notifications()
+    {
+        return view('notifications');
+    }
+    public function notificationsDetails()
+    {
+        return view('notifications-details');
+    }
+    public function contact()
+    {
+        return view('contact');
     }
 
 }

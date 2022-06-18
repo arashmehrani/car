@@ -68,17 +68,17 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-center">
-                                <p class="mb-2"><span>پراید</span> <span>سفید</span></p>
+                                <p class="mb-2"><span>پژو</span> <span>نقره ای</span></p>
                             </div>
                             <div class="d-flex align-items-center justify-content-center">
 
                                 <div class="plate-div registration-ui">
                                     <div class="plate-1">
-                                        <span>۲۱۴</span>
-                                        <span>ل</span>
-                                        <span>۳۸</span>
+                                        <span>۳۱۴</span>
+                                        <span>ب</span>
+                                        <span>۱۳</span>
                                     </div>
-                                    <span class="plate-2">۱۵</span>
+                                    <span class="plate-2">۴۴</span>
                                 </div>
                             </div>
 
@@ -89,17 +89,17 @@
                                         سرویس های پیش رو:
                                     </p>
                                     <p>
-                                        <small>تعویض بعدی روغن موتور در کیلومتر 240000</small>
+                                        <small>تعویض بعدی روغن موتور در 15 روز دیگر</small>
                                         <br/>
-                                        <small>تعویض بعدی تسمه تایم در کیلومتر 243000</small>
+                                        <small>تعویض بعدی تسمه تایم در 93 روز دیگر</small>
                                         <br/>
-                                        <small>تعویض بعدی روغن گیربکس در کیلومتر 223150</small>
+                                        <small>تعویض بعدی روغن گیربکس در 36 روز دیگر</small>
                                     </p>
                                 </div>
 
                             </div>
                             <div class="d-flex align-items-start justify-content-start">
-                                <p class="mb-2"><a href="#" class="btn btn-primary btn-sm">افزودن سرویس جدید</a>
+                                <p class="mb-2"><a href="{{url('service-list')}}" class="btn btn-primary btn-sm">افزودن سرویس جدید</a>
                                 </p>
                             </div>
                         </div>
@@ -179,7 +179,7 @@
             <div class="card-body text-center p-5"><img class="mb-4" src="{{asset('img/banners/banner-02.png')}}"
                                                         alt="">
                 <h6 class="mb-4 lh-base">معرفی کسب و کار خودرویی شما در اپلیکیشن ماشین</h6><a
-                    class="btn btn-creative btn-danger btn-lg" href="#">شروع همکاری</a>
+                    class="btn btn-creative btn-danger btn-lg" href="{{url('/contact')}}">شروع همکاری</a>
             </div>
         </div>
     </div>

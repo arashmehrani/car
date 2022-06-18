@@ -58,7 +58,7 @@
             <div
                 class="header-content header-style-two position-relative d-flex align-items-center justify-content-between">
                 <!-- Logo Wrapper -->
-                <div class="logo-wrapper"><a href="{{url('/')}}"><span class="text-white">اپلیکیشن </span></a>
+                <div class="logo-wrapper"><a href="{{url('/home')}}"><span class="text-white">اپلیکیشن </span></a>
                 </div>
                 <div class="navbar-content-wrapper d-flex align-items-center">
                     <!-- Navbar Toggler -->
@@ -94,12 +94,12 @@
             </div>
             <!-- Sidenav Nav -->
             <ul class="sidenav-nav ps-0">
-                <li><a href="{{url('/')}}"><i class="bi bi-house-door"></i>خانه</a></li>
-                <li><a href="{{url('/')}}"><i class="bi bi-tools"></i>ثبت سرویس</a></li>
-                <li><a href="{{url('/')}}"><i class="bi bi-clock-history"></i>یاد آوری<span
+                <li><a href="{{url('/home')}}"><i class="bi bi-house-door"></i>خانه</a></li>
+                <li><a href="{{url('/service-list')}}"><i class="bi bi-tools"></i>ثبت سرویس</a></li>
+                <li><a href="{{url('/notifications')}}"><i class="bi bi-clock-history"></i>یاد آوری<span
                             class="badge bg-danger rounded-pill ms-2">5</span></a></li>
-                <li><a href="{{url('/')}}"><i class="bi bi-life-preserver"></i>پشتیبانی</a></li>
-                <li><a href="{{url('/')}}"><i class="bi bi-gear"></i>تنظیمات</a></li>
+                <li><a href="{{url('/contact')}}"><i class="bi bi-life-preserver"></i>پشتیبانی</a></li>
+                <li><a href="{{url('/profile')}}"><i class="bi bi-person"></i>حساب کاربری</a></li>
                 <li>
                     <div class="night-mode-nav"><i class="bi bi-moon"></i>حالت تاریک
                         <div class="form-check form-switch">
@@ -144,7 +144,7 @@
                                   d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"></path>
                         </svg>
                     </a></li>
-                <li><a href="pages.html">
+                <li><a href="{{url('/notifications')}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              class="bi bi-clock-history" viewBox="0 0 16 16">
                             <path
@@ -154,14 +154,14 @@
                                 d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
                         </svg>
                     </a></li>
-                <li class="active"><a href="elements.html">
+                <li class="active"><a href="{{url('service-list')}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              class="bi bi-tools" viewBox="0 0 16 16">
                             <path
                                 d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
                         </svg>
                     </a></li>
-                <li><a href="page-chat-users.html">
+                <li><a href="{{url('/contact')}}">
                         <svg class="bi bi-chat-dots" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                              fill="currentColor" viewBox="0 0 16 16">
                             <path
@@ -170,13 +170,9 @@
                                 d="M2.165 15.803l.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 0 .693-.125zm.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2z"></path>
                         </svg>
                     </a></li>
-                <li><a href="settings.html">
-                        <svg class="bi bi-gear" width="24" height="24" viewBox="0 0 16 16" fill="currentColor"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                  d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z"></path>
-                            <path fill-rule="evenodd"
-                                  d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z"></path>
+                <li><a href="{{url('/profile')}}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                         </svg>
                     </a></li>
             </ul>
@@ -202,6 +198,7 @@
 <script src="{{asset('')}}js/active.js"></script>
 <!-- PWA -->
 <script src="{{asset('')}}js/pwa.js"></script>
+<script src="{{asset('js/city.js')}}"></script>
 @yield('javascript')
 </body>
 </html>
