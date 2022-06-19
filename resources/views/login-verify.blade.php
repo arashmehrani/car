@@ -15,14 +15,15 @@
             </div>
             <!-- OTP Verify Form -->
             <div class="otp-verify-form mt-4">
-                <form>
+                <form method="post">
+                    @csrf
                     <div class="input-group mb-3 otp-input-group">
                         <input class="form-control" type="text" value="" placeholder="-" maxlength="1" tabindex="0">
                         <input class="form-control" type="text" value="" placeholder="-" maxlength="1" tabindex="1">
                         <input class="form-control" type="text" value="" placeholder="-" maxlength="1" tabindex="2">
                         <input class="form-control" type="text" value="" placeholder="-" maxlength="1" tabindex="3">
                     </div>
-                    <a class="btn btn-warning w-100" href="{{url('/home')}}">تایید و ورود</a>
+                    <button class="btn btn-warning w-100" type="submit">تایید و ورود</button>
                 </form>
             </div>
             <!-- Term & Privacy Info -->
