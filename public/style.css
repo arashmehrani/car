@@ -8807,3 +8807,14 @@ input[type=color].form-control.is-valid, input[type=color].form-control:valid {
 [data-theme=dark] body .single-plan-check {
   border-color: rgba(255, 255, 255, 0.1);
 }
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}

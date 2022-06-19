@@ -12,7 +12,9 @@
                 <form method="post" action="{{url('/login-app')}}">
                     @csrf
                     <div class="input-group mb-3">
-                        <input id="phone" name="phone" class="form-control" type="text" placeholder="شماره موبایل خود را وارد کنید" maxlength="11">
+                        <input id="phone" name="phone" class="form-control" type="number"
+                               oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                               placeholder="شماره موبایل خود را وارد کنید" maxlength="11">
 
                     </div>
                     @if ($errors->has('phone'))

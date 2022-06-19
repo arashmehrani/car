@@ -34,7 +34,6 @@
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="{{asset('')}}style.css">
     <link rel="stylesheet" href="{{asset('css/plate.css')}}">
-    <link rel="stylesheet" href="{{asset('fontiran.css')}}">
 
     @yield('css')
     <!-- Web App Manifest -->

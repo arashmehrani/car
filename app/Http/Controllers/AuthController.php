@@ -38,11 +38,8 @@ class AuthController extends Controller
     {
         if (session('phone')) {
             $user = User::where('phone', session('phone'))->first();
-            $token = $user->token;
-
             auth()->login($user, true);
             session()->forget('phone');
-            $request->session()->regenerate();
             return redirect()->route('home');
         } else {
             return redirect('/login');
