@@ -18,7 +18,12 @@ class MainController extends Controller
 
     public function verify()
     {
-        return view('login-verify');
+        if(session('phone')){
+            return view('login-verify');
+        }else{
+            return redirect()->route('login');
+        }
+
     }
 
     public function profile()

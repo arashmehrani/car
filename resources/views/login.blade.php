@@ -9,7 +9,7 @@
             </div>
             <!-- OTP Send Form -->
             <div class="otp-form mt-4">
-                <form method="post">
+                <form method="post" action="{{url('/login-app')}}">
                     @csrf
                     <div class="input-group mb-3">
                         <input id="phone" name="phone" class="form-control" type="text" placeholder="شماره موبایل خود را وارد کنید" maxlength="11">

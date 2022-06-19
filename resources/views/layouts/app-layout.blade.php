@@ -107,7 +107,9 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="{{url('/')}}"><i class="bi bi-box-arrow-right"></i>خروج</a></li>
+                <li>
+                    <a href="{{route('logout')}}"><i class="bi bi-box-arrow-right"></i>خروج</a>
+                </li>
             </ul>
             <!-- Social Info -->
             <div class="social-info-wrap"><a href="#"><i class="bi bi-globe"></i></a><a href="#"><i

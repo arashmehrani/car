@@ -38,20 +38,21 @@ class AuthController extends Controller
     {
         if (session('phone')) {
             $user = User::where('phone', session('phone'))->first();
+            $token = $user->token;
+
             auth()->login($user, true);
             session()->forget('phone');
             $request->session()->regenerate();
-            return redirect()->intended('home');
+            return redirect()->route('home');
         } else {
             return redirect('/login');
         }
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
         Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        session()->flush();
         return redirect('/login');
     }
 }

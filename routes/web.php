@@ -16,10 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [MainController::class, 'login'])->middleware('guest');
-Route::get('/login', [MainController::class, 'login'])->middleware('guest')->name('login');
-Route::post('/login', [AuthController::class, 'loginOtp'])->middleware(['guest', 'throttle:6,1'])->name('loginPost');
-Route::get('/verify-number', [MainController::class, 'verify'])->middleware('guest')->name('verify');
-Route::post('/verify-number', [AuthController::class, 'verify'])->middleware(['guest', 'throttle:6,1'])->name('verifyPost');
+Route::get('/login', [MainController::class, 'login'])->middleware('guest');
+Route::post('/login-app', [AuthController::class, 'loginOtp'])->middleware(['guest', 'throttle:6,1']);
+Route::get('/verify-number', [MainController::class, 'verify'])->middleware('guest');
+Route::post('/verify-number', [AuthController::class, 'verify'])->middleware(['guest', 'throttle:6,1']);
+Route::get('/logout', [AuthController::class, 'logout'])->middleware(['auth'])->name('logout');
 
 
 Route::prefix('app')->middleware(['auth'])->group(function () {
