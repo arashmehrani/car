@@ -30,18 +30,23 @@
                     <div class="input-group mb-3 otp-input-group">
                         <input class="form-control" type="number" id="fourth"
                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                               pattern="[0-9]"
                                maxlength="1" max="9" min="0" placeholder="-"
                                onkeyup="clickEvent(this,'fifth')">
                         <input class="form-control" type="number" id="third"
                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                               pattern="[0-9]"
                                maxlength="1" max="9" min="0" placeholder="-"
                                onkeyup="clickEvent(this,'fourth')">
                         <input class="form-control" type="number" id="sec"
                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                               pattern="[0-9]"
                                maxlength="1" max="9" min="0" placeholder="-"
                                onkeyup="clickEvent(this,'third')">
                         <input class="form-control" type="number" id='ist'
                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                               pattern="[0-9]"
+                               autocomplete="one-time-code"
                                maxlength="1" max="9" min="0" placeholder="-"
                                onkeyup="clickEvent(this,'sec')">
                     </div>
