@@ -22,13 +22,18 @@
                     @csrf
                     <div class="input-group mb-3 otp-input-group my-placeholder">
 
-                        <input class="form-control" type="number" id='code'
-                               oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                        <input class="form-control" type="number" id='code' name="code" required
+                               oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);
+                               this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                pattern="[0-9]"
                                autocomplete="one-time-code"
                                maxlength="4" max="9999" min="0" placeholder="----">
                     </div>
-
+                    @if ($errors->any())
+                        <p>
+                            <small class="text-danger">{{$errors->first()}}</small>
+                        </p>
+                    @endif
                     <button class="btn btn-warning w-100" type="submit">تایید و ورود</button>
                 </form>
 

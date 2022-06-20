@@ -36,12 +36,22 @@ class AuthController extends Controller
 
     public function verify(Request $request)
     {
+        $validated = $request->validate([
+            'code' => 'required|digits:4|numeric',
+        ]);
         if (session('phone')) {
             $user = User::where('phone', session('phone'))->first();
-            auth()->login($user, true);
-            session()->forget('phone');
-            return redirect()->route('home');
+            $code = $user->token;
+            if ($code == $request->code){
+                auth()->login($user, true);
+                session()->forget('phone');
+                return redirect()->route('home');
+            }else{
+                return redirect()->back()->withErrors(['msg' => 'کد وارد شده صحیح نیست']);
+            }
+
         } else {
+            session()->forget('phone');
             return redirect('/login');
         }
     }
