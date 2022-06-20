@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,7 @@ Route::prefix('app')->middleware(['auth'])->group(function () {
 
     Route::get('/contact', [MainController::class, 'contact'])->name('contact');
     Route::get('/profile', [MainController::class, 'profile'])->name('profile');
+    Route::post('/profile/edit', [ProfileController::class, 'edit']);
 
 });
 
