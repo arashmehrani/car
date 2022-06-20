@@ -9,10 +9,12 @@
                 <div class="contact-form">
                     <form action="#">
                         <div class="form-group mb-3">
-                            <input class="form-control" type="text" placeholder="نام و نام خانوادگی">
+                            <input class="form-control" name="name" type="text" placeholder="نام و نام خانوادگی"
+                                   value="{{old('name',auth()->user()->name)}}" readonly>
                         </div>
                         <div class="form-group mb-3">
-                            <input class="form-control" type="text" placeholder="شماره تماس">
+                            <input class="form-control" name="phone" type="text" placeholder="شماره تماس"
+                                   value="{{old('phone',auth()->user()->phone)}}" readonly>
                         </div>
                         <div class="form-group mb-3">
                             <select class="form-select" name="topic">
@@ -21,9 +23,10 @@
                             </select>
                         </div>
                         <div class="form-group mb-3">
-                            <textarea class="form-control" name="textarea" cols="30" rows="10" placeholder="متن پیام"></textarea>
+                            <textarea class="form-control" name="message" cols="30" rows="10"
+                                      placeholder="متن پیام">{{old('message')}}</textarea>
                         </div>
-                        <button class="btn btn-primary w-100">ارسال</button>
+                        <button class="btn btn-primary w-100">ارسال پیام</button>
                     </form>
                 </div>
             </div>

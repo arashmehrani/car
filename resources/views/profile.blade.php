@@ -5,38 +5,47 @@
         <!-- User Information-->
         <div class="card user-info-card mb-3">
             <div class="card-body d-flex align-items-center">
-                <div class="user-profile me-3"><img src="img/bg-img/2.jpg" alt=""><i class="bi bi-pencil"></i>
+                <div class="user-profile me-3"><img src="{{asset('img/profiles')}}/{{auth()->user()->pic}}" alt=""><i
+                        class="bi bi-pencil"></i>
                     <form action="#">
-                        <input class="form-control" type="file">
+                        <input class="form-control" type="file" name="pic">
                     </form>
                 </div>
                 <div class="user-info">
                     <div class="d-flex align-items-center">
-                        <h5 class="mb-1">آرش مهرانی</h5><span class="badge bg-warning ms-2 rounded-pill">پشتیبان</span>
+                        <h5 class="mb-1">{{auth()->user()->name}}</h5>
                     </div>
-                    <p class="mb-0">البرز ، کرج</p>
+                    <p class="mb-0">
+                        @if(empty(auth()->user()->state))
+                            استان ، شهر
+                        @else
+                            {{auth()->user()->state}} ، {{auth()->user()->city}}
+                        @endif
+                    </p>
                 </div>
             </div>
         </div>
         <!-- User Meta Data-->
         <div class="card user-data-card">
             <div class="card-body">
-                <form action="#">
+                <form action="#" enctype="multipart/form-data">
                     <div class="form-group mb-3">
-                        <label class="form-label" for="Username">نام</label>
-                        <input class="form-control" id="Username" type="text" placeholder="نام">
+                        <label class="form-label" for="name">نام و نام خانوادگی</label>
+                        <input class="form-control" name="name" id="name" type="text" placeholder="نام"
+                               value="{{old('name', auth()->user()->name)}}">
                     </div>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="fullname">نام خانوادگی</label>
-                        <input class="form-control" id="fullname" type="text" placeholder="نام خانوادگی">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label class="form-label" for="email">شماره موبایل</label>
-                        <input class="form-control" id="email" type="text" value="09130010415" placeholder="شماره موبایل" readonly>
+                        <label class="form-label" for="phone">شماره موبایل</label>
+                        <input class="form-control" id="phone" type="text" value="{{auth()->user()->phone}}"
+                               placeholder="شماره موبایل" readonly>
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label" for="email">استان محل سکونت</label>
-                        <select class="form-select form-control-clicked" name="state" onChange="irancitylist(this.value);" >
+                        <select class="form-select form-control-clicked" name="state"
+                                onChange="irancitylist(this.value);">
+                            @if(auth()->user()->state)
+                                <option value="{{auth()->user()->state}}" selected>{{auth()->user()->state}}</option>
+                            @endif
                             <option value="0">لطفا استان را انتخاب نمایید</option>
                             <option value="تهران">تهران</option>
                             <option value="گیلان">گیلان</option>
@@ -74,11 +83,12 @@
                     <div class="form-group mb-3">
                         <label class="form-label" for="email">شهر محل سکونت</label>
                         <select class="form-select form-control-clicked" name="city" id="city">
+                            @if(auth()->user()->city)
+                                <option value="{{auth()->user()->city}}" selected>{{auth()->user()->city}}</option>
+                            @endif
                         </select>
                     </div>
-
-
-                    <button class="btn btn-warning w-100" type="submit">بروزرسانی</button>
+                    <button class="btn btn-warning w-100" type="submit">ذخیره</button>
                 </form>
             </div>
         </div>

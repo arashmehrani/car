@@ -11,6 +11,11 @@ class MainController extends Controller
         return view('index');
     }
 
+    public function home()
+    {
+        return redirect()->route('home');
+    }
+
     public function login()
     {
         return view('login');

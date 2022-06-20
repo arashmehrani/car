@@ -1,13 +1,13 @@
 {
-  "name": "Affan - PWA Mobile HTML Template",
-  "short_name": "Affan",
-  "start_url": "https://designing-world.com/affan-1.4.1/element-hero-blocks.html",
+  "name": "اپلیکیشن خدمات خودرو",
+  "short_name": "اپلیکیشن",
+  "start_url": "https://app.teamara.ir",
   "display": "standalone",
   "background_color": "#0d5afd",
   "theme_color": "#0d5afd",
-  "categories": ["mobile", "multipurpose", "blog", "ecommerce", "pwa"],
+  "categories": ["mobile", "car", "service"],
   "orientation": "portrait",
-  "description": "Affan - PWA Mobile HTML Template",
+  "description": "اپلیکیشن خدمات خودرو",
   "icons": [{
       "src": "img/icons/icon-72x72.png",
       "type": "image/png",

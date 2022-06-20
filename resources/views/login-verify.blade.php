@@ -36,11 +36,10 @@
                     @endif
                     <button class="btn btn-warning w-100" type="submit">تایید و ورود</button>
                 </form>
-
             </div>
             <!-- Term & Privacy Info -->
-            <div class="login-meta-data text-center">
-                <p class="mt-3 mb-0">کد تایید دریافت نکرده اید؟<span class="otp-sec ms-1" id="resendOTP"></span></p>
+            <div class="login-meta-data text-center mt-3">
+                <a class=" mb-0" href="#"><small>کد تایید دریافت نکرده اید؟</small></a>
             </div>
         </div>
     </div>

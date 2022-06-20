@@ -1,13 +1,11 @@
 @extends('layouts.app-layout')
 
 @section('content')
-
     <div class="container">
         <!-- Element Heading -->
-
         <div class="element-heading">
             <div class="row gx-2 align-items-end">
-                <div class="col-4 text-end"><a class="btn btn-warning btn-sm mb-4 text-white" href="{{url('/car-new')}}">ماشین جدید </a>
+                <div class="col-4 text-end"><a class="btn btn-warning btn-sm mb-4 text-white" href="{{route('carNew')}}">ماشین جدید </a>
                 </div>
                 <div class="col-8">
                     <div class="image-gallery-text mb-4">
@@ -57,7 +55,7 @@
 
                             </div>
                             <div class="d-flex align-items-start justify-content-start">
-                                <p class="mb-2"><a href="{{url('service-list')}}" class="btn btn-primary btn-sm">افزودن سرویس جدید</a>
+                                <p class="mb-2"><a href="{{route('serviceList')}}" class="btn btn-primary btn-sm">افزودن سرویس جدید</a>
                                 </p>
                             </div>
                         </div>
@@ -99,7 +97,7 @@
 
                             </div>
                             <div class="d-flex align-items-start justify-content-start">
-                                <p class="mb-2"><a href="{{url('service-list')}}" class="btn btn-primary btn-sm">افزودن سرویس جدید</a>
+                                <p class="mb-2"><a href="{{route('serviceList')}}" class="btn btn-primary btn-sm">افزودن سرویس جدید</a>
                                 </p>
                             </div>
                         </div>
@@ -179,7 +177,7 @@
             <div class="card-body text-center p-5"><img class="mb-4" src="{{asset('img/banners/banner-02.png')}}"
                                                         alt="">
                 <h6 class="mb-4 lh-base">معرفی کسب و کار خودرویی شما در اپلیکیشن ماشین</h6><a
-                    class="btn btn-creative btn-danger btn-lg" href="{{url('/contact')}}">شروع همکاری</a>
+                    class="btn btn-creative btn-danger btn-lg" href="{{route('contact')}}">شروع همکاری</a>
             </div>
         </div>
     </div>

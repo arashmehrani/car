@@ -16,12 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [MainController::class, 'login'])->middleware('guest');
-Route::get('/login', [MainController::class, 'login'])->middleware('guest');
+Route::get('/login', [MainController::class, 'login'])->middleware('guest')->name('login');
 Route::post('/login-app', [AuthController::class, 'loginOtp'])->middleware(['guest', 'throttle:6,1']);
 Route::get('/verify-number', [MainController::class, 'verify'])->middleware('guest');
 Route::post('/verify-number', [AuthController::class, 'verify'])->middleware(['guest', 'throttle:6,1']);
 Route::get('/logout', [AuthController::class, 'logout'])->middleware(['auth'])->name('logout');
 
+Route::get('/home', [MainController::class, 'home'])->middleware('auth');
 
 Route::prefix('app')->middleware(['auth'])->group(function () {
 

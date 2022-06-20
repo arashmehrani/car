@@ -8,36 +8,30 @@
     <meta name="theme-color" content="#0134d4">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     @yield('meta')
     <!-- Title -->
     <title>ماشین - اپلیکیشن مدیریت تعمیرات خودرو</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-        rel="stylesheet">
     <!-- Favicon -->
-    <link rel="icon" href="{{asset('')}}img/core-img/favicon.svg">
-    <link rel="apple-touch-icon" href="{{asset('')}}img/icons/icon-96x96.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{asset('')}}img/icons/icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="{{asset('')}}img/icons/icon-167x167.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('')}}img/icons/icon-180x180.png">
+    <link rel="icon" href="{{asset('img/core-img/favicon.svg')}}">
+    <link rel="apple-touch-icon" href="{{asset('img/icons/icon-96x96.png')}}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{asset('img/icons/icon-152x152.png')}}">
+    <link rel="apple-touch-icon" sizes="167x167" href="{{asset('img/icons/icon-167x167.png')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('img/icons/icon-180x180.png')}}">
     <!-- CSS Libraries -->
-    <link rel="stylesheet" href="{{asset('')}}css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{asset('')}}css/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{asset('')}}css/tiny-slider.css">
-    <link rel="stylesheet" href="{{asset('')}}css/baguetteBox.min.css">
-    <link rel="stylesheet" href="{{asset('')}}css/rangeslider.css">
-    <link rel="stylesheet" href="{{asset('')}}css/vanilla-dataTables.min.css">
-    <link rel="stylesheet" href="{{asset('')}}css/apexcharts.css">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('css/tiny-slider.css')}}">
+    <link rel="stylesheet" href="{{asset('css/baguetteBox.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/rangeslider.css')}}">
+    <link rel="stylesheet" href="{{asset('css/vanilla-dataTables.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/apexcharts.css')}}">
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="{{asset('')}}style.css">
+    <link rel="stylesheet" href="{{asset('style.css')}}">
     <link rel="stylesheet" href="{{asset('css/plate.css')}}">
 
     @yield('css')
     <!-- Web App Manifest -->
-    <link rel="manifest" href="{{asset('')}}manifest.json">
+    <link rel="manifest" href="{{asset('manifest.json')}}">
 </head>
 <body>
 <!-- Preloader -->
@@ -51,13 +45,11 @@
 <div class="header-area" id="headerArea">
     <div class="bg-warning shadow-sm">
         <div class="container">
-            <!-- # Header Two Layout -->
-            <!-- # Copy the code from here ... -->
             <!-- Header Content -->
             <div
                 class="header-content header-style-two position-relative d-flex align-items-center justify-content-between">
                 <!-- Logo Wrapper -->
-                <div class="logo-wrapper"><a href="{{url('/home')}}"><span class="text-white">اپلیکیشن </span></a>
+                <div class="logo-wrapper"><a href="{{route('home')}}"><span class="text-white">اپلیکیشن </span></a>
                 </div>
                 <div class="navbar-content-wrapper d-flex align-items-center">
                     <!-- Navbar Toggler -->
@@ -85,20 +77,28 @@
             <div class="sidenav-profile bg-gradient">
                 <div class="sidenav-style1"></div>
                 <!-- User Thumbnail -->
-                <div class="user-profile"><img src="{{asset('')}}img/bg-img/2.jpg" alt=""></div>
+                <div class="user-profile"><img src="{{asset('img/profiles')}}/{{auth()->user()->pic}}" alt="پروفایل کاربر">
+                </div>
                 <!-- User Info -->
                 <div class="user-info">
-                    <h6 class="user-name mb-0">کاربر جدید</h6><span>البرز ، کرج</span>
+                    <h6 class="user-name mb-0">{{auth()->user()->name}}</h6>
+                    <span>
+                        @if(empty(auth()->user()->state))
+                            استان ، شهر
+                        @else
+                            {{auth()->user()->state}} ، {{auth()->user()->city}}
+                        @endif
+                    </span>
                 </div>
             </div>
             <!-- Sidenav Nav -->
             <ul class="sidenav-nav ps-0">
-                <li><a href="{{url('/home')}}"><i class="bi bi-house-door"></i>خانه</a></li>
-                <li><a href="{{url('/service-list')}}"><i class="bi bi-tools"></i>ثبت سرویس</a></li>
-                <li><a href="{{url('/notifications')}}"><i class="bi bi-clock-history"></i>یاد آوری<span
+                <li><a href="{{route('home')}}"><i class="bi bi-house-door"></i>خانه</a></li>
+                <li><a href="{{route('serviceList')}}"><i class="bi bi-tools"></i>ثبت سرویس</a></li>
+                <li><a href="{{route('notifications')}}"><i class="bi bi-clock-history"></i>یاد آوری<span
                             class="badge bg-danger rounded-pill ms-2">1</span></a></li>
-                <li><a href="{{url('/contact')}}"><i class="bi bi-life-preserver"></i>پشتیبانی</a></li>
-                <li><a href="{{url('/profile')}}"><i class="bi bi-person"></i>حساب کاربری</a></li>
+                <li><a href="{{route('contact')}}"><i class="bi bi-life-preserver"></i>پشتیبانی</a></li>
+                <li><a href="{{route('profile')}}"><i class="bi bi-person"></i>حساب کاربری</a></li>
                 <li>
                     <div class="night-mode-nav"><i class="bi bi-moon"></i>حالت تاریک
                         <div class="form-check form-switch">
@@ -110,9 +110,6 @@
                     <a href="{{route('logout')}}"><i class="bi bi-box-arrow-right"></i>خروج</a>
                 </li>
             </ul>
-            <!-- Social Info -->
-            <div class="social-info-wrap"><a href="#"><i class="bi bi-globe"></i></a><a href="#"><i
-                        class="bi bi-twitter"></i></a></div>
             <!-- Copyright Info -->
             <div class="copyright-info">
                 <p> &copy; کلیه حقوق برای مهرانی محفوظ است </p>
@@ -130,13 +127,10 @@
 <!-- Footer Nav -->
 <div class="footer-nav-area" id="footerNav">
     <div class="container px-0">
-        <!-- =================================== -->
-        <!-- Paste your Footer Content from here -->
-        <!-- =================================== -->
         <!-- Footer Content -->
         <div class="footer-nav position-relative shadow-sm footer-style-two">
             <ul class="h-100 d-flex align-items-center justify-content-between ps-0">
-                <li><a href="{{url('/home')}}">
+                <li><a href="{{route('home')}}">
                         <svg class="bi bi-house" width="24" height="24" viewBox="0 0 16 16" fill="currentColor"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -145,7 +139,7 @@
                                   d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"></path>
                         </svg>
                     </a></li>
-                <li><a href="{{url('/notifications')}}">
+                <li><a href="{{route('notifications')}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              class="bi bi-clock-history" viewBox="0 0 16 16">
                             <path
@@ -155,14 +149,14 @@
                                 d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
                         </svg>
                     </a></li>
-                <li class="active"><a href="{{url('service-list')}}">
+                <li class="active"><a href="{{route('serviceList')}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              class="bi bi-tools" viewBox="0 0 16 16">
                             <path
                                 d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
                         </svg>
                     </a></li>
-                <li><a href="{{url('/contact')}}">
+                <li><a href="{{route('contact')}}">
                         <svg class="bi bi-chat-dots" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                              fill="currentColor" viewBox="0 0 16 16">
                             <path
@@ -171,9 +165,11 @@
                                 d="M2.165 15.803l.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 0 .693-.125zm.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2z"></path>
                         </svg>
                     </a></li>
-                <li><a href="{{url('/profile')}}">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                <li><a href="{{route('profile')}}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                             class="bi bi-person" viewBox="0 0 16 16">
+                            <path
+                                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                         </svg>
                     </a></li>
             </ul>
@@ -182,23 +178,22 @@
     </div>
 </div>
 
-
 <!-- All JavaScript Files -->
-<script src="{{asset('')}}js/bootstrap.bundle.min.js"></script>
-<script src="{{asset('')}}js/slideToggle.min.js"></script>
+<script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('js/slideToggle.min.js')}}"></script>
 <script src="{{asset('js/internet-status.js')}}"></script>
-<script src="{{asset('')}}js/tiny-slider.js"></script>
-<script src="{{asset('')}}js/baguetteBox.min.js"></script>
-<script src="{{asset('')}}js/countdown.js"></script>
-<script src="{{asset('')}}js/rangeslider.min.js"></script>
-<script src="{{asset('')}}js/vanilla-dataTables.min.js"></script>
-<script src="{{asset('')}}js/index.js"></script>
-<script src="{{asset('')}}js/imagesloaded.pkgd.min.js"></script>
-<script src="{{asset('')}}js/isotope.pkgd.min.js"></script>
-<script src="{{asset('')}}js/dark-rtl.js"></script>
-<script src="{{asset('')}}js/active.js"></script>
+<script src="{{asset('js/tiny-slider.js')}}"></script>
+<script src="{{asset('js/baguetteBox.min.js')}}"></script>
+<script src="{{asset('js/countdown.js')}}"></script>
+<script src="{{asset('js/rangeslider.min.js')}}"></script>
+<script src="{{asset('js/vanilla-dataTables.min.js')}}"></script>
+<script src="{{asset('js/index.js')}}"></script>
+<script src="{{asset('js/imagesloaded.pkgd.min.js')}}"></script>
+<script src="{{asset('js/isotope.pkgd.min.js')}}"></script>
+<script src="{{asset('js/dark-rtl.js')}}"></script>
+<script src="{{asset('js/active.js')}}"></script>
 <!-- PWA -->
-<script src="{{asset('')}}js/pwa.js"></script>
+<script src="{{asset('js/pwa.js')}}"></script>
 <script src="{{asset('js/city.js')}}"></script>
 @yield('javascript')
 </body>

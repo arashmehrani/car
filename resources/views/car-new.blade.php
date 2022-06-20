@@ -35,10 +35,6 @@
                         <input class="form-control" id="exampleInputemail" type="text" placeholder="">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="exampleInputemail">رنگ خودرو</label>
-                        <input class="form-control" id="exampleInputemail" type="text" placeholder="">
-                    </div>
-                    <div class="form-group">
                         <label class="form-label" for="exampleInputemail">کیلومتر فعلی</label>
                         <input class="form-control" id="exampleInputemail" type="text" placeholder="">
                     </div>
@@ -47,7 +43,7 @@
                         <input class="form-control" id="exampleInputemail" type="text" placeholder="">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="exampleInputemail">سال تولید</label>
+                        <label class="form-label" for="exampleInputemail">بارکد ماشین VIN <small> (اختیاری) </small></label>
                         <input class="form-control" id="exampleInputemail" type="text" placeholder="">
                     </div>
 
