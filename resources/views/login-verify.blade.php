@@ -14,42 +14,21 @@
         <div class="custom-container">
             <div class="text-center"><img class="mx-auto mb-4 d-block" src="{{asset('img/banners/login.png')}}" alt="">
                 <h3>تایید شماره تلفن</h3>
-                <p class="mb-4">کد تایید به شماره <strong class="ms-1">{{session('phone')}}</strong> ارسال شد</p>
+                <p class="mb-4">کد تایید به شماره <strong class="ms-1">{{session('phone')}}</strong> پیامک شد</p>
             </div>
             <!-- OTP Verify Form -->
-            <script>
-                function clickEvent(first, last) {
-                    if (first.value.length) {
-                        document.getElementById(last).focus();
-                    }
-                }
-            </script>
             <div class="otp-verify-form mt-4">
                 <form method="post">
                     @csrf
-                    <div class="input-group mb-3 otp-input-group">
-                        <input class="form-control" type="number" id="fourth"
-                               oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                               pattern="[0-9]"
-                               maxlength="1" max="9" min="0" placeholder="-"
-                               onkeyup="clickEvent(this,'fifth')">
-                        <input class="form-control" type="number" id="third"
-                               oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                               pattern="[0-9]"
-                               maxlength="1" max="9" min="0" placeholder="-"
-                               onkeyup="clickEvent(this,'fourth')">
-                        <input class="form-control" type="number" id="sec"
-                               oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                               pattern="[0-9]"
-                               maxlength="1" max="9" min="0" placeholder="-"
-                               onkeyup="clickEvent(this,'third')">
-                        <input class="form-control" type="number" id='ist'
+                    <div class="input-group mb-3 otp-input-group my-placeholder">
+
+                        <input class="form-control" type="number" id='code'
                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                pattern="[0-9]"
                                autocomplete="one-time-code"
-                               maxlength="1" max="9" min="0" placeholder="-"
-                               onkeyup="clickEvent(this,'sec')">
+                               maxlength="4" max="9999" min="0" placeholder="----">
                     </div>
+
                     <button class="btn btn-warning w-100" type="submit">تایید و ورود</button>
                 </form>
 

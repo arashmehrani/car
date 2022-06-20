@@ -8818,3 +8818,39 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
+.my-placeholder input::placeholder {
+    font-size: 2em;
+    opacity: 0.5;
+
+    text-align: center;
+}
+.my-placeholder input::-webkit-input-placeholder { /* WebKit browsers */
+    font-size: 2em;
+    opacity: 0.5;
+
+    text-align: center;
+}
+.my-placeholder input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-size: 2em;
+    opacity: 0.5;
+
+    text-align: center;
+}
+.my-placeholder input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-size: 2em;
+    opacity: 0.5;
+
+
+    text-align: center;
+}
+.my-placeholder input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-size: 2em;
+    opacity: 0.5;
+
+    line-height: normal;
+    text-align: center;
+}
+.my-placeholder input {
+    font-size: 1.1em;
+    line-height: normal;
+}
