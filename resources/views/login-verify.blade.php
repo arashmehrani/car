@@ -27,7 +27,7 @@
                                this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                pattern="[0-9]"
                                autocomplete="one-time-code"
-                               maxlength="4" max="9999" min="0" placeholder="----">
+                               maxlength="4" max="9999" min="0" placeholder="- - - -">
                     </div>
                     @if ($errors->any())
                         <p>
