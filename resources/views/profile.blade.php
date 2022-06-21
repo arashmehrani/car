@@ -36,13 +36,23 @@
                         <input class="form-control" name="name" id="name" type="text" placeholder="نام"
                                value="{{old('name', auth()->user()->name)}}">
                     </div>
+                    @if ($errors->has('name'))
+                        <p>
+                            <small class="text-danger">{{ $errors->first('name') }}</small>
+                        </p>
+                    @endif
                     <div class="form-group mb-3">
                         <label class="form-label" for="phone">شماره موبایل</label>
                         <input class="form-control" id="phone" type="text" value="{{auth()->user()->phone}}"
                                placeholder="شماره موبایل" readonly>
                     </div>
+                    @if ($errors->has('phone'))
+                        <p>
+                            <small class="text-danger">{{ $errors->first('phone') }}</small>
+                        </p>
+                    @endif
                     <div class="form-group mb-3">
-                        <label class="form-label" for="email">استان محل سکونت</label>
+                        <label class="form-label" for="state">استان محل سکونت</label>
                         <select class="form-select form-control-clicked" name="state"
                                 onChange="irancitylist(this.value);">
                             @if(auth()->user()->state)
@@ -82,15 +92,25 @@
                             <option value="البرز">البرز</option>
                         </select>
                     </div>
+                    @if ($errors->has('state'))
+                        <p>
+                            <small class="text-danger">{{ $errors->first('state') }}</small>
+                        </p>
+                    @endif
                     <div class="form-group mb-3">
-                        <label class="form-label" for="email">شهر محل سکونت</label>
+                        <label class="form-label" for="city">شهر محل سکونت</label>
                         <select class="form-select form-control-clicked" name="city" id="city">
                             @if(auth()->user()->city)
                                 <option value="{{auth()->user()->city}}" selected>{{auth()->user()->city}}</option>
                             @endif
                         </select>
                     </div>
-                    <button class="btn btn-warning w-100" type="submit">ذخیره</button>
+                    @if ($errors->has('city'))
+                        <p>
+                            <small class="text-danger">{{ $errors->first('city') }}</small>
+                        </p>
+                    @endif
+                    <button class="btn btn-success w-100" type="submit">ذخیره</button>
                 </form>
                 @if(Session::has('msg'))
                     <!-- Success Toast-->

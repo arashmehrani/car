@@ -10,11 +10,11 @@ class ProfileController extends Controller
 {
     public function edit(Request $request)
     {
-/*        $validated = $request->validate([
+       $validated = $request->validate([
             'name' => 'required|string|min:3',
             'state' => 'required',
             'city' => 'required',
-        ]);*/
+        ]);
         $user = Auth::user();
         $user->name = $request->name;
         $user->state = $request->state;

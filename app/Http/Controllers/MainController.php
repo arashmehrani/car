@@ -52,9 +52,9 @@ class MainController extends Controller
     {
         return view('notifications-details');
     }
-    public function contact()
+    public function support()
     {
-        return view('contact');
+        return view('support');
     }
 
 }

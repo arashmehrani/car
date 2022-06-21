@@ -177,7 +177,7 @@
             <div class="card-body text-center p-5"><img class="mb-4" src="{{asset('img/banners/banner-02.png')}}"
                                                         alt="">
                 <h6 class="mb-4 lh-base">معرفی کسب و کار خودرویی شما در اپلیکیشن ماشین</h6><a
-                    class="btn btn-creative btn-danger btn-lg" href="{{route('contact')}}">شروع همکاری</a>
+                    class="btn btn-creative btn-danger btn-lg" href="{{route('support')}}">شروع همکاری</a>
             </div>
         </div>
     </div>
