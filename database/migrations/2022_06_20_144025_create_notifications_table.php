@@ -17,8 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('content')->nullable();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('service_id')->nullable();
+            $table->foreignId('user_id')->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('service_id')->nullable();
             $table->timestamps();
         });
     }

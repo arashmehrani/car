@@ -18,7 +18,10 @@ return new class extends Migration
             $table->string('subject')->nullable();
             $table->text('message')->nullable();
             $table->unsignedBigInteger('parent_id')->nullable();
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreignId('user_id')->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -24,7 +24,10 @@ return new class extends Migration
             $table->string(' address')->nullable();
             $table->string(' location')->nullable();
             $table->string(' phone')->nullable();
-            $table->unsignedBigInteger(' user_id')->nullable();
+            $table->foreignId('user_id')->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

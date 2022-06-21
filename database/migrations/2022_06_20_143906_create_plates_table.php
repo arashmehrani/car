@@ -23,7 +23,10 @@ return new class extends Migration
             $table->unsignedInteger('km_current')->nullable();
             $table->unsignedInteger('km_average')->nullable();
             $table->string('vin')->nullable();
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreignId('user_id')->nullable()
+                ->constrained('users')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->string('type')->nullable()->default('car');
             $table->timestamps();
         });
