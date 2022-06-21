@@ -8,8 +8,8 @@
     <meta name="theme-color" content="#0134d4">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    @yield('meta')
-    <!-- Title -->
+@yield('meta')
+<!-- Title -->
     <title>ماشین - اپلیکیشن مدیریت تعمیرات خودرو</title>
     <!-- Favicon -->
     <link rel="icon" href="{{asset('img/core-img/favicon.svg')}}">
@@ -29,8 +29,8 @@
     <link rel="stylesheet" href="{{asset('style.css')}}">
     <link rel="stylesheet" href="{{asset('css/plate.css')}}">
 
-    @yield('css')
-    <!-- Web App Manifest -->
+@yield('css')
+<!-- Web App Manifest -->
     <link rel="manifest" href="{{asset('manifest.json')}}">
 </head>
 <body>
@@ -49,7 +49,7 @@
             <div
                 class="header-content header-style-two position-relative d-flex align-items-center justify-content-between">
                 <!-- Logo Wrapper -->
-                <div class="logo-wrapper"><a href="{{route('home')}}"><span class="text-white">اپلیکیشن </span></a>
+                <div class="logo-wrapper"><a href="{{route('app')}}"><span class="text-white">اپلیکیشن </span></a>
                 </div>
                 <div class="navbar-content-wrapper d-flex align-items-center">
                     <!-- Navbar Toggler -->
@@ -77,7 +77,8 @@
             <div class="sidenav-profile bg-gradient">
                 <div class="sidenav-style1"></div>
                 <!-- User Thumbnail -->
-                <div class="user-profile"><img src="{{asset('img/profiles')}}/{{auth()->user()->pic}}" alt="پروفایل کاربر">
+                <div class="user-profile"><img src="{{asset('img/profiles')}}/{{auth()->user()->pic}}"
+                                               alt="پروفایل کاربر">
                 </div>
                 <!-- User Info -->
                 <div class="user-info">
@@ -93,8 +94,8 @@
             </div>
             <!-- Sidenav Nav -->
             <ul class="sidenav-nav ps-0">
-                <li><a href="{{route('home')}}"><i class="bi bi-house-door"></i>خانه</a></li>
-                <li><a href="{{route('serviceList')}}"><i class="bi bi-tools"></i>ثبت سرویس</a></li>
+                <li><a href="{{route('app')}}"><i class="bi bi-house-door"></i>خانه</a></li>
+                <li><a href="{{route('service.select')}}"><i class="bi bi-tools"></i>ثبت سرویس</a></li>
                 <li><a href="{{route('notifications')}}"><i class="bi bi-clock-history"></i>یاد آوری<span
                             class="badge bg-danger rounded-pill ms-2">1</span></a></li>
                 <li><a href="{{route('support')}}"><i class="bi bi-life-preserver"></i>پشتیبانی</a></li>
@@ -130,7 +131,7 @@
         <!-- Footer Content -->
         <div class="footer-nav position-relative shadow-sm footer-style-two">
             <ul class="h-100 d-flex align-items-center justify-content-between ps-0">
-                <li><a href="{{route('home')}}">
+                <li><a href="{{route('app')}}">
                         <svg class="bi bi-house" width="24" height="24" viewBox="0 0 16 16" fill="currentColor"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -149,7 +150,7 @@
                                 d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
                         </svg>
                     </a></li>
-                <li class="active"><a href="{{route('serviceList')}}">
+                <li class="active"><a href="{{route('service.select')}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              class="bi bi-tools" viewBox="0 0 16 16">
                             <path

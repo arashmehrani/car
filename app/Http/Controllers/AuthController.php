@@ -25,16 +25,16 @@ class AuthController extends Controller
             $newUser->phone = $phone;
             $newUser->password = Hash::make(rand(6, 8));
             $newUser->save();
-            return redirect('/verify-number');
+            return redirect()->route('verify.phone');
 
         } else {
             $request->session()->put('phone', $phone);
-            return redirect('/verify-number');
+            return redirect()->route('verify.phone');
         }
 
     }
 
-    public function verify(Request $request)
+    public function verifyPhonePost(Request $request)
     {
         $validated = $request->validate([
             'code' => 'required|digits:4|numeric',
@@ -42,17 +42,17 @@ class AuthController extends Controller
         if (session('phone')) {
             $user = User::where('phone', session('phone'))->first();
             $code = $user->token;
-            if ($code == $request->code){
+            if ($code == $request->code) {
                 auth()->login($user, true);
                 session()->forget('phone');
-                return redirect()->route('home');
-            }else{
+                return redirect()->route('app');
+            } else {
                 return redirect()->back()->withErrors(['msg' => 'کد وارد شده صحیح نیست']);
             }
 
         } else {
             session()->forget('phone');
-            return redirect('/login');
+            return redirect()->route('login');
         }
     }
 
@@ -60,6 +60,6 @@ class AuthController extends Controller
     {
         Auth::logout();
         session()->flush();
-        return redirect('/login');
+        return redirect()->route('logout');
     }
 }

@@ -8,8 +8,8 @@
     <meta name="theme-color" content="#0134d4">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    @yield('meta')
-    <!-- Title -->
+@yield('meta')
+<!-- Title -->
     <title>ماشین - اپلیکیشن مدیریت تعمیرات خودرو</title>
     <!-- Favicon -->
     <link rel="icon" href="{{asset('img/core-img/favicon.svg')}}">
@@ -29,8 +29,8 @@
     <link rel="stylesheet" href="{{asset('style.css')}}">
     <link rel="stylesheet" href="{{asset('css/plate.css')}}">
 
-    @yield('css')
-    <!-- Web App Manifest -->
+@yield('css')
+<!-- Web App Manifest -->
     <link rel="manifest" href="{{asset('manifest.json')}}">
 </head>
 <body>
@@ -42,7 +42,7 @@
 <!-- # This code for showing internet connection status -->
 <div class="internet-connection-status" id="internetStatus"></div>
 
-    @yield('content')
+@yield('content')
 
 <!-- All JavaScript Files -->
 <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>

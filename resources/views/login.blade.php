@@ -9,10 +9,11 @@
             </div>
             <!-- OTP Send Form -->
             <div class="otp-form mt-4">
-                <form method="post" action="{{url('/login-app')}}">
+                <form method="post" action="{{route('login.post')}}">
                     @csrf
                     <div class="input-group mb-3">
-                        <input id="phone" name="phone" class="form-control" type="number" required value="{{old('phone')}}"
+                        <input id="phone" name="phone" class="form-control" type="number" required
+                               value="{{old('phone')}}"
                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);
                                this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                placeholder="شماره موبایل خود را وارد کنید" maxlength="11">

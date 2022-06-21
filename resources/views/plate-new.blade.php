@@ -11,7 +11,8 @@
     <div class="container">
         <div class="card">
             <div class="card-body">
-                <form action="#" method="GET">
+                <form method="post">
+                    @csrf
                     <div class="form-group mb-0">
                         <label class="form-label" for="p1">شماره پلاک</label>
                     </div>
@@ -75,13 +76,15 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="km_current">کیلومتر فعلی</label>
-                        <input class="form-control" id="km_current" name="km_current" type="number" value="{{old('km_current')}}"
+                        <input class="form-control" id="km_current" name="km_current" type="number"
+                               value="{{old('km_current')}}"
                                oninput="javascript: this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                pattern="[0-9]">
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="km_average">میانگین مسافت طی شده در روز</label>
-                        <input class="form-control" id="km_average" name="km_average" type="number" value="{{old('km_average')}}"
+                        <input class="form-control" id="km_average" name="km_average" type="number"
+                               value="{{old('km_average')}}"
                                oninput="javascript: this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                pattern="[0-9]">
                     </div>

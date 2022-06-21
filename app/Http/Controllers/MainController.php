@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    public function index()
+    public function app()
     {
-        return view('index');
+        return view('app');
     }
 
     public function home()
     {
-        return redirect()->route('home');
+        return redirect()->route('app');
     }
 
     public function login()
@@ -21,7 +21,7 @@ class MainController extends Controller
         return view('login');
     }
 
-    public function verify()
+    public function verifyPhone()
     {
         if(session('phone')){
             return view('login-verify');
@@ -36,13 +36,13 @@ class MainController extends Controller
         return view('profile');
     }
 
-    public function carNew()
+    public function plateNew()
     {
-        return view('car-new');
+        return view('plate-new');
     }
-    public function serviceList()
+    public function serviceSelect()
     {
-        return view('service-list');
+        return view('service-select');
     }
     public function notifications()
     {
@@ -50,7 +50,7 @@ class MainController extends Controller
     }
     public function notificationsDetails()
     {
-        return view('notifications-details');
+        return view('notification-detail');
     }
     public function support()
     {

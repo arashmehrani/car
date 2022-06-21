@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Back Button -->
-    <div class="login-back-button"><a href="{{url('/')}}">
+    <div class="login-back-button"><a href="{{route('login')}}">
             <svg class="bi bi-arrow-left-short" width="32" height="32" viewBox="0 0 16 16" fill="currentColor"
                  xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
