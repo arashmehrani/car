@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string(' address')->nullable();
             $table->string(' location')->nullable();
             $table->string(' phone')->nullable();
-            $table->unsignedBigInteger(' partner')->nullable();
+            $table->unsignedBigInteger(' user_id')->nullable();
             $table->timestamps();
         });
     }

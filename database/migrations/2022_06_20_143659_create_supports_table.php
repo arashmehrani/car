@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('subject')->nullable();
             $table->text('message')->nullable();
+            $table->unsignedBigInteger('parent_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
         });

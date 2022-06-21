@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('content')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('services_id')->nullable();
+            $table->unsignedBigInteger('service_id')->nullable();
             $table->timestamps();
         });
     }
