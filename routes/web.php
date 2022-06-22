@@ -17,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 /////////// General Routes
-Route::get('/', [MainController::class, 'login'])->middleware('guest')->name('index');
+Route::get('/', [MainController::class, 'index'])->middleware('guest')->name('index');
 Route::get('/home', [MainController::class, 'home'])->middleware('auth')->name('home');
+Route::get('/start', [MainController::class, 'start'])->middleware('guest')->name('start');
 
 /////////// Auth Routes
 Route::get('/login', [MainController::class, 'login'])->middleware('guest')->name('login');
