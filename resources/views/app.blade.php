@@ -18,6 +18,25 @@
         </div>
     </div>
     <div class="container">
+
+        <div class="modal fade" id="profile" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+             aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title" id="staticBackdropLabel">تکمیل پروفایل</h6>
+                    </div>
+                    <div class="modal-body">
+                        <p class="mb-0">لطفا در راستای ارائه سرویس با کیفیت تر، اطلاعات پروفایل خود را تکمیل نمایید.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-sm btn-success" href="{{route('profile')}}">تکمیل پروفایل</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="testimonial-slide-one-wrapper">
             <div class="testimonial-slide testimonial-style1">
                 <!-- plate slider -->
@@ -186,4 +205,13 @@
     </div>
 
 @endsection
+
+@if(auth()->user()->name == 'کاربر جدید' or empty(auth()->user()->city) or empty(auth()->user()->state))
+    @section('javascript')
+        <script>
+            var profileModal = new bootstrap.Modal(document.getElementById('profile'), {})
+            profileModal.toggle()
+        </script>
+    @endsection
+@endif
 
