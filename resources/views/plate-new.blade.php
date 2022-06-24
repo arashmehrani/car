@@ -68,9 +68,16 @@
                                this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                pattern="[0-9]" maxlength="2" max="99" min="10" placeholder="--">
                     </div>
-
                     <div class="form-group">
-                        <label class="form-label" for="title">نام خودرو</label>
+                        <label class="form-label" for="company">کمپانی سازنده خودرو</label>
+                        <select class="form-select form-control-clicked text-center" id="company"
+                                name="company" aria-label="Default select example">
+                            <option value="ایران خودرو">ایران خودرو</option>
+                            <option value="سایپا">سایپا</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="title">عنوان خودرو</label>
                         <input class="form-control" id="title" name="title" type="text" placeholder="مثال: پراید سفید"
                                value="{{old('title')}}">
                     </div>

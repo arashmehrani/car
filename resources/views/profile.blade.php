@@ -34,7 +34,11 @@
                     <div class="form-group mb-3">
                         <label class="form-label" for="name">نام و نام خانوادگی</label>
                         <input class="form-control" name="name" id="name" type="text" placeholder="نام"
-                               value="{{old('name', auth()->user()->name)}}">
+                              @if( auth()->user()->name == 'کاربر جدید')
+                               value="{{old('name')}}"
+                        @else
+                               value="{{old('name', auth()->user()->name)}}"
+                        @endif>
                     </div>
                     @if ($errors->has('name'))
                         <p>

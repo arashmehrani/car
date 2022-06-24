@@ -23,6 +23,7 @@ return new class extends Migration
             $table->unsignedInteger('km_current')->nullable();
             $table->unsignedInteger('km_average')->nullable();
             $table->string('vin')->nullable();
+            $table->string('company')->nullable();
             $table->foreignId('user_id')->nullable()
                 ->constrained('users')
                 ->onUpdate('cascade')
