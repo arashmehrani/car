@@ -67,20 +67,37 @@
                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);
                                this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                pattern="[0-9]" maxlength="2" max="99" min="10" placeholder="--">
+
                     </div>
+                    @if ($errors->has('plate'))
+                        <p>
+                            <small class="text-danger">{{ $errors->first('plate') }}</small>
+                        </p>
+                    @endif
                     <div class="form-group">
                         <label class="form-label" for="company">کمپانی سازنده خودرو</label>
                         <select class="form-select form-control-clicked text-center" id="company"
                                 name="company" aria-label="Default select example">
-                            <option value="ایران خودرو">ایران خودرو</option>
-                            <option value="سایپا">سایپا</option>
+                            @foreach($companies as $company)
+                                <option value="{{$company->name}}">{{$company->name}}</option>
+                            @endforeach
                         </select>
                     </div>
+                    @if ($errors->has('company'))
+                        <p>
+                            <small class="text-danger">{{ $errors->first('company') }}</small>
+                        </p>
+                    @endif
                     <div class="form-group">
                         <label class="form-label" for="title">عنوان خودرو</label>
                         <input class="form-control" id="title" name="title" type="text" placeholder="مثال: پراید سفید"
                                value="{{old('title')}}">
                     </div>
+                    @if ($errors->has('title'))
+                        <p>
+                            <small class="text-danger">{{ $errors->first('title') }}</small>
+                        </p>
+                    @endif
                     <div class="form-group">
                         <label class="form-label" for="km_current">کیلومتر فعلی</label>
                         <input class="form-control" id="km_current" name="km_current" type="number"
@@ -88,6 +105,11 @@
                                oninput="javascript: this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                pattern="[0-9]">
                     </div>
+                    @if ($errors->has('km_current'))
+                        <p>
+                            <small class="text-danger">{{ $errors->first('km_current') }}</small>
+                        </p>
+                    @endif
                     <div class="form-group">
                         <label class="form-label" for="km_average">میانگین مسافت طی شده در روز</label>
                         <input class="form-control" id="km_average" name="km_average" type="number"
@@ -95,16 +117,27 @@
                                oninput="javascript: this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                pattern="[0-9]">
                     </div>
+                    @if ($errors->has('km_average'))
+                        <p>
+                            <small class="text-danger">{{ $errors->first('km_average') }}</small>
+                        </p>
+                    @endif
                     <div class="form-group">
                         <label class="form-label" for="vin">بارکد ماشین VIN <small>
                                 (اختیاری) </small></label>
                         <input class="form-control" id="vin" name="vin" type="text" value="{{old('vin')}}">
                     </div>
+                    @if ($errors->has('vin'))
+                        <p>
+                            <small class="text-danger">{{ $errors->first('vin') }}</small>
+                        </p>
+                    @endif
 
                     <button class="btn btn-success w-100 d-flex align-items-center justify-content-center"
                             type="submit">
                         ذخیره
                     </button>
+
                 </form>
             </div>
         </div>

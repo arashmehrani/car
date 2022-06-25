@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('p2')->nullable();
             $table->string('p3')->nullable();
             $table->string('p4')->nullable();
+            $table->string('plate')->nullable();
             $table->unsignedInteger('km_current')->nullable();
             $table->unsignedInteger('km_average')->nullable();
             $table->string('vin')->nullable();
@@ -28,6 +29,7 @@ return new class extends Migration
                 ->constrained('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->string('company_name')->nullable();
             $table->string('type')->nullable()->default('car');
             $table->timestamps();
         });

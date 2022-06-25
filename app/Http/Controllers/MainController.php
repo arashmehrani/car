@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -15,6 +16,7 @@ class MainController extends Controller
     {
         return view('start');
     }
+
     public function app()
     {
 
@@ -33,9 +35,9 @@ class MainController extends Controller
 
     public function verifyPhone()
     {
-        if(session('phone')){
+        if (session('phone')) {
             return view('login-verify');
-        }else{
+        } else {
             return redirect()->route('login');
         }
 
@@ -48,20 +50,25 @@ class MainController extends Controller
 
     public function plateNew()
     {
-        return view('plate-new');
+        $companies = Company::all();
+        return view('plate-new', compact('companies'));
     }
+
     public function serviceSelect()
     {
         return view('service-select');
     }
+
     public function notifications()
     {
         return view('notifications');
     }
+
     public function notificationsDetails()
     {
         return view('notification-detail');
     }
+
     public function support()
     {
         return view('support');

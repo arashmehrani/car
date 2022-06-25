@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\PlateController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupportController;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,7 @@ Route::prefix('app')->middleware(['auth'])->group(function () {
 
     /////// Plate Routes
     Route::get('/plate-new', [MainController::class, 'plateNew'])->name('plate.new');
+    Route::post('/plate-new', [PlateController::class, 'plateNew']);
 
     /////// Service Routes
     Route::get('/service-select', [MainController::class, 'serviceSelect'])->name('service.select');
