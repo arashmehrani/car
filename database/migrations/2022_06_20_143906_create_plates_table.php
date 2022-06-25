@@ -29,7 +29,6 @@ return new class extends Migration
                 ->constrained('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->string('company_name')->nullable();
             $table->string('type')->nullable()->default('car');
             $table->timestamps();
         });
