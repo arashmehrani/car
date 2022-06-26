@@ -35,6 +35,6 @@ class PlateController extends Controller
         $plate->user_id = Auth::id();
         $plate->save();
         session()->flash('msg', 'پلاک جدید ثبت شد');
-        return redirect()->back();
+        return redirect()->route('app');
     }
 }

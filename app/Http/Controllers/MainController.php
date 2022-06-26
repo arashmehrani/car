@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\Plate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
@@ -19,8 +21,8 @@ class MainController extends Controller
 
     public function app()
     {
-
-        return view('app');
+        $plates = Plate::where('user_id', Auth::id())->get();
+        return view('app', compact('plates'));
     }
 
     public function home()

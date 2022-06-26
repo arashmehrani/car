@@ -2,23 +2,6 @@
 
 @section('content')
     <div class="container">
-        <!-- Element Heading -->
-        <div class="element-heading">
-            <div class="row gx-2 align-items-end">
-                <div class="col-4 text-end"><a class="btn btn-warning btn-sm mb-4 text-white"
-                                               href="{{route('plate.new')}}">ماشین جدید </a>
-                </div>
-                <div class="col-8">
-                    <div class="image-gallery-text mb-4">
-                        <h6 class="mb-0">ماشین های من</h6>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <div class="container">
-
         <div class="modal fade" id="profile" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
              aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -35,97 +18,98 @@
                 </div>
             </div>
         </div>
+        <!-- Element Heading -->
+        <div class="element-heading">
+            <div class="row gx-2 align-items-end">
+                <div class="col-4 text-end"><a class="btn btn-warning btn-sm mb-4 text-white"
+                                               href="{{route('plate.new')}}">ماشین جدید </a>
+                </div>
+                <div class="col-8">
+                    <div class="image-gallery-text mb-4">
+                        <h6 class="mb-0">ماشین های من</h6>
+                    </div>
+                </div>
+            </div>
 
-
+        </div>
+    </div>
+    <div class="container">
         <div class="testimonial-slide-one-wrapper">
             <div class="testimonial-slide testimonial-style1">
-                <!-- plate slider -->
-                <div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-center">
-                                <p class="mb-2"><span>پراید</span> <span>سفید</span></p>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-center">
 
-                                <div class="plate-div registration-ui">
-                                    <div class="plate-1">
-                                        <span>۲۱۴</span>
-                                        <span>ل</span>
-                                        <span>۳۸</span>
+                @foreach($plates as $plate)
+                    <!-- plate slider -->
+                    <div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <p class="mb-2"><span>{{$plate->title}}</span></p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+
+                                    <div class="plate-div registration-ui">
+                                        <div class="plate-1">
+                                            <span>{{$plate->p3}}</span>
+                                            <span>{{$plate->p2}}</span>
+                                            <span>{{$plate->p1}}</span>
+                                        </div>
+                                        <span class="plate-2">{{$plate->p4}}</span>
                                     </div>
-                                    <span class="plate-2">۱۵</span>
-                                </div>
-                            </div>
-
-                            <div class="single-testimonial-slide">
-
-                                <div class="text-content">
-                                    <p class="fw-bold mt-2 mb-1">
-                                        سرویس های پیش رو:
-                                    </p>
-                                    <p>
-                                        <small>تعویض بعدی روغن موتور در کیلومتر 240000</small>
-                                        <br/>
-                                        <small>تعویض بعدی تسمه تایم در کیلومتر 243000</small>
-                                        <br/>
-                                        <small>تعویض بعدی روغن گیربکس در کیلومتر 223150</small>
-                                    </p>
                                 </div>
 
-                            </div>
-                            <div class="d-flex align-items-start justify-content-start">
-                                <p class="mb-2"><a href="{{route('service.select')}}" class="btn btn-primary btn-sm">افزودن
-                                        سرویس جدید</a>
-                                </p>
+                                <div class="single-testimonial-slide">
+
+                                    <div class="text-content">
+                                        <p class="fw-bold mt-2 mb-1">
+                                            سرویس های پیش رو:
+                                        </p>
+                                        <p>
+                                            <small>تعویض بعدی روغن موتور در
+                                                <span> <strong>ثبت نشده</strong> </span>
+                                            </small>
+                                            <br/>
+                                            <small>تعویض بعدی تسمه تایم
+                                                <span> <strong>ثبت نشده</strong> </span>
+                                            </small>
+                                            <br/>
+                                            <small>تعویض بعدی روغن گیربکس
+                                                <span> <strong>ثبت نشده</strong> </span>
+                                            </small>
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <div class="d-flex align-items-start justify-content-start">
+                                    <p class="mb-2"><a href="{{route('service.select')}}"
+                                                       class="btn btn-outline-primary btn-sm">افزودن
+                                            سرویس جدید</a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
                 <!-- plate slider -->
                 <div>
-                    <div class="card">
-                        <div class="card-body">
+                    <div class="card" style="height: 272.6px">
+                        <div class="card-body mt-5">
                             <div class="d-flex align-items-center justify-content-center">
-                                <p class="mb-2"><span>پژو</span> <span>نقره ای</span></p>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-center">
-
                                 <div class="plate-div registration-ui">
                                     <div class="plate-1">
-                                        <span>۳۱۴</span>
-                                        <span>ب</span>
-                                        <span>۱۳</span>
+                                        <span>--</span>
+                                        <span>-</span>
+                                        <span>---</span>
                                     </div>
-                                    <span class="plate-2">۴۴</span>
+                                    <span class="plate-2">--</span>
                                 </div>
                             </div>
-
-                            <div class="single-testimonial-slide">
-
-                                <div class="text-content">
-                                    <p class="fw-bold mt-2 mb-1">
-                                        سرویس های پیش رو:
-                                    </p>
-                                    <p>
-                                        <small>تعویض بعدی روغن موتور در 15 روز دیگر</small>
-                                        <br/>
-                                        <small>تعویض بعدی تسمه تایم در 93 روز دیگر</small>
-                                        <br/>
-                                        <small>تعویض بعدی روغن گیربکس در 36 روز دیگر</small>
-                                    </p>
-                                </div>
-
+                            <div class="d-flex align-items-center justify-content-center mt-4">
+                                <a class="btn btn-lg btn-primary" href="{{route('plate.new')}}">ثبت پلاک جدید</a>
                             </div>
-                            <div class="d-flex align-items-start justify-content-start">
-                                <p class="mb-2"><a href="{{route('service.select')}}" class="btn btn-primary btn-sm">افزودن
-                                        سرویس جدید</a>
-                                </p>
-                            </div>
+
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -140,7 +124,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="container mt-3">
         <div class="card">
@@ -193,7 +176,6 @@
         </div>
     </div>
 
-
     <div class="container">
         <div class="card mt-3">
             <div class="card-body text-center p-5"><img class="mb-4" src="{{asset('img/banners/banner-02.png')}}"
@@ -214,4 +196,3 @@
         </script>
     @endsection
 @endif
-

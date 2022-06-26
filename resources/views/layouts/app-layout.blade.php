@@ -95,7 +95,7 @@
             <!-- Sidenav Nav -->
             <ul class="sidenav-nav ps-0">
                 <li><a href="{{route('app')}}"><i class="bi bi-house-door"></i>خانه</a></li>
-                <li><a href="{{route('plate.new')}}"><i class="bi bi-projector"></i>ثبت خودرو</a></li>
+                <li><a href="{{route('plate.new')}}"><i class="bi bi-projector"></i>ثبت خودرو جدید</a></li>
                 <li><a href="{{route('service.select')}}"><i class="bi bi-tools"></i>ثبت سرویس</a></li>
                 <li><a href="{{route('notifications')}}"><i class="bi bi-clock-history"></i>یاد آوری<span
                             class="badge bg-danger rounded-pill ms-2">1</span></a></li>
