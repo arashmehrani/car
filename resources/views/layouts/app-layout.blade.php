@@ -181,6 +181,7 @@
 </div>
 
 <!-- All JavaScript Files -->
+
 <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('js/slideToggle.min.js')}}"></script>
 <script src="{{asset('js/internet-status.js')}}"></script>
@@ -194,9 +195,11 @@
 <script src="{{asset('js/isotope.pkgd.min.js')}}"></script>
 <script src="{{asset('js/dark-rtl.js')}}"></script>
 <script src="{{asset('js/active.js')}}"></script>
+
 <!-- PWA -->
 <script src="{{asset('js/pwa.js')}}"></script>
 <script src="{{asset('js/city.js')}}"></script>
 @yield('javascript')
+
 </body>
 </html>

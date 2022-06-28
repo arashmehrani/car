@@ -34,84 +34,91 @@
         </div>
     </div>
     <div class="container">
-        <div class="testimonial-slide-one-wrapper">
-            <div class="testimonial-slide testimonial-style1">
+        <div id="plates-testimonials" class="owl-carousel owl-theme">
 
-                @foreach($plates as $plate)
-                    <!-- plate slider -->
-                    <div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <p class="mb-2"><span>{{$plate->title}}</span></p>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center">
+            @foreach($plates as $plate)
+                <!-- plate slider -->
 
-                                    <div class="plate-div registration-ui">
-                                        <div class="plate-1">
-                                            <span>{{$plate->p3}}</span>
-                                            <span>{{$plate->p2}}</span>
-                                            <span>{{$plate->p1}}</span>
-                                        </div>
-                                        <span class="plate-2">{{$plate->p4}}</span>
+                <div class="item">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <p class="mb-2"><span>{{$plate->title}}</span></p>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center">
+
+                                <div class="plate-div registration-ui">
+                                    <div class="plate-1">
+                                        <span>{{$plate->p3}}</span>
+                                        <span>{{$plate->p2}}</span>
+                                        <span>{{$plate->p1}}</span>
                                     </div>
+                                    <span class="plate-2">{{$plate->p4}}</span>
                                 </div>
+                            </div>
 
-                                <div class="single-testimonial-slide">
+                            <div class="single-testimonial-slide">
 
-                                    <div class="text-content">
-                                        <p class="fw-bold mt-2 mb-1">
-                                            سرویس های پیش رو:
-                                        </p>
-                                        <p>
-                                            <small>تعویض بعدی روغن موتور در
-                                                <span> <strong>ثبت نشده</strong> </span>
-                                            </small>
-                                            <br/>
-                                            <small>تعویض بعدی تسمه تایم
-                                                <span> <strong>ثبت نشده</strong> </span>
-                                            </small>
-                                            <br/>
-                                            <small>تعویض بعدی روغن گیربکس
-                                                <span> <strong>ثبت نشده</strong> </span>
-                                            </small>
-                                        </p>
-                                    </div>
-
-                                </div>
-                                <div class="d-flex align-items-start justify-content-start">
-                                    <p class="mb-2"><a href="{{route('service.select')}}"
-                                                       class="btn btn-outline-primary btn-sm">افزودن
-                                            سرویس جدید</a>
+                                <div class="text-content">
+                                    <p class="fw-bold mt-2 mb-1">
+                                        سرویس های پیش رو:
+                                    </p>
+                                    <p>
+                                        <small>تعویض بعدی روغن موتور در
+                                            <span> <strong>ثبت نشده</strong> </span>
+                                        </small>
+                                        <br/>
+                                        <small>تعویض بعدی تسمه تایم
+                                            <span> <strong>ثبت نشده</strong> </span>
+                                        </small>
+                                        <br/>
+                                        <small>تعویض بعدی روغن گیربکس
+                                            <span> <strong>ثبت نشده</strong> </span>
+                                        </small>
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endforeach
-                <!-- plate slider -->
-                <div>
-                    <div class="card" style="height: 272.6px">
-                        <div class="card-body mt-5">
-                            <div class="d-flex align-items-center justify-content-center">
-                                <div class="plate-div registration-ui">
-                                    <div class="plate-1">
-                                        <span>--</span>
-                                        <span>-</span>
-                                        <span>---</span>
+                    <div class="add-services">
+                        <a class="text-white" href="{{route('service.select')}}">
+                            <div class="add-service"><small>افزودن سرویس جدید</small></div>
+                        </a>
+                    </div>
+
+                </div>
+
+            @endforeach
+                <div class="item">
+                    <div class="card" style="height: 236.6px">
+                        <div class="card-body">
+                            <div class="mt-5">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <p class="mb-2"><span> خودرو جدید</span></p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+
+                                    <div class="plate-div registration-ui">
+                                        <div class="plate-1">
+                                            <span>- -</span>
+                                            <span>- - -</span>
+                                            <span>- -</span>
+                                        </div>
+                                        <span class="plate-2">- -</span>
                                     </div>
-                                    <span class="plate-2">--</span>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-center justify-content-center mt-4">
-                                <a class="btn btn-lg btn-primary" href="{{route('plate.new')}}">ثبت پلاک جدید</a>
-                            </div>
-
                         </div>
                     </div>
+                    <div class="add-services">
+                        <a class="text-white" href="{{route('plate.new')}}">
+                            <div class="add-service"><small>ثبت خودرو جدید</small></div>
+                        </a>
+                    </div>
+
                 </div>
-            </div>
         </div>
+
     </div>
 
     <div class="container mt-3">
@@ -185,6 +192,36 @@
             </div>
         </div>
     </div>
+
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
+    <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{asset('js/owl.carousel.min.js')}}"></script>
+
+    <script>
+        $('.owl-carousel').owlCarousel({
+            stagePadding: 30,
+            autoplay: false,
+            autoHeight: false,
+            items: 1,
+            loop: false,
+            touchDrag: true,
+            margin: 7,
+            nav: false,
+            dots: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                1000: {
+                    items: 2
+                }
+            }
+        })
+    </script>
 
 @endsection
 
