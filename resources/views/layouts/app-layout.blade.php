@@ -96,7 +96,7 @@
             <ul class="sidenav-nav ps-0">
                 <li><a href="{{route('app')}}"><i class="bi bi-house-door"></i>خانه</a></li>
                 <li><a href="{{route('plate.new')}}"><i class="bi bi-projector"></i>ثبت خودرو جدید</a></li>
-                <li><a href="{{route('service.select')}}"><i class="bi bi-tools"></i>ثبت سرویس</a></li>
+                <li><a href="#"><i class="bi bi-tools"></i>ثبت سرویس</a></li>
                 <li><a href="{{route('notifications')}}"><i class="bi bi-clock-history"></i>یاد آوری<span
                             class="badge bg-danger rounded-pill ms-2">1</span></a></li>
                 <li><a href="{{route('support')}}"><i class="bi bi-life-preserver"></i>پشتیبانی</a></li>
@@ -151,7 +151,7 @@
                                 d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
                         </svg>
                     </a></li>
-                <li class="active"><a href="{{route('service.select')}}">
+                <li class="active"><a href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                              class="bi bi-tools" viewBox="0 0 16 16">
                             <path

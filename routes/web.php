@@ -40,7 +40,7 @@ Route::prefix('app')->middleware(['auth'])->group(function () {
     Route::post('/plate-new', [PlateController::class, 'plateNew']);
 
     /////// Service Routes
-    Route::get('/service-select', [MainController::class, 'serviceSelect'])->name('service.select');
+    Route::get('/service-select/{id}', [MainController::class, 'serviceSelect'])->name('service.select');
 
     /////// Notifications Routes
     Route::get('/notifications', [MainController::class, 'notifications'])->name('notifications');

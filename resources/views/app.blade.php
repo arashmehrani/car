@@ -19,7 +19,7 @@
             </div>
         </div>
         <!-- Element Heading -->
-        <div class="element-heading">
+{{--        <div class="element-heading">
             <div class="row gx-2 align-items-end">
                 <div class="col-4 text-end"><a class="btn btn-warning btn-sm mb-4 text-white"
                                                href="{{route('plate.new')}}">ماشین جدید </a>
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-        </div>
+        </div>--}}
     </div>
     <div class="container">
         <div id="plates-testimonials" class="owl-carousel owl-theme">
@@ -39,9 +39,21 @@
             @foreach($plates as $plate)
                 <!-- plate slider -->
 
-                <div class="item">
-                    <div class="card">
+                <div class="item" id="{{$plate->id}}">
+                    <div class="card shadow-sm">
                         <div class="card-body">
+                            <div class="btn-plate-card">
+                                <div class="dropdown rtl">
+                                    <a style="font-size: 22px;" data-toggle="dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-plus-circle"></i>
+                                    </a>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item" href="#">حذف پلاک</a></li>
+                                        <li><a class="dropdown-item" href="#">انتقال پلاک</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="d-flex align-items-center justify-content-center">
                                 <p class="mb-2"><span>{{$plate->title}}</span></p>
                             </div>
@@ -79,9 +91,10 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <div class="add-services">
-                        <a class="text-white" href="{{route('service.select')}}">
+                        <a class="text-white" href="{{route('service.select', $plate->id)}}">
                             <div class="add-service"><small>افزودن سرویس جدید</small></div>
                         </a>
                     </div>
@@ -122,7 +135,7 @@
     </div>
 
     <div class="container mt-3">
-        <div class="card bg-warning">
+        <div class="card bg-warning shadow-sm">
             <div class="card-body text-center">
                 <h3 class="mb-3">ویژه صاحبان تعمیرگاه ها</h3>
                 <p class="text-black">آیا مشتریان شما نیاز به مدیریت و یادآوری جهت سرویس های دوره ای دارند؟ اپلیکیشن
@@ -133,7 +146,7 @@
     </div>
 
     <div class="container mt-3">
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-body">
                 <h2>پیشنهاد ویژه در شهر شما</h2>
                 <div class="testimonial-slide-three-wrapper">
@@ -185,7 +198,7 @@
 
     <div class="container">
         <div class="card mt-3">
-            <div class="card-body text-center p-5"><img class="mb-4" src="{{asset('img/banners/banner-02.png')}}"
+            <div class="card-body text-center p-5 shadow-sm"><img class="mb-4" src="{{asset('img/banners/banner-02.png')}}"
                                                         alt="">
                 <h6 class="mb-4 lh-base">معرفی کسب و کار خودرویی شما در اپلیکیشن ماشین</h6><a
                     class="btn btn-creative btn-danger btn-lg" href="{{route('support')}}">شروع همکاری</a>
@@ -217,10 +230,13 @@
                     items: 1
                 },
                 1000: {
-                    items: 2
+                    items: 1
                 }
             }
-        })
+        });
+            var id = $(".owl-item.active :first-child").attr('id');
+            console.log('Image current is ' + id);
+
     </script>
 
 @endsection

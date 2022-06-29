@@ -8864,6 +8864,9 @@ input[type=number] {
     text-align: center;
     color: #fff;
 }
+.btn-plate-card {
+margin: -15px 0 0 -15px ;
+}
 
 #plates-testimonials .item {
     opacity: .5;
@@ -8881,4 +8884,9 @@ input[type=number] {
     opacity: 1;
     -webkit-transform: scale3d(1.0, 1.0, 1);
     transform: scale3d(1.0, 1.0, 1);
+}
+.rtl { direction: rtl!important; }
+.dropdown-menu {
+    text-align: start !important;
+    direction: rtl!important;
 }

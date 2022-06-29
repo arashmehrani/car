@@ -56,9 +56,10 @@ class MainController extends Controller
         return view('plate-new', compact('companies'));
     }
 
-    public function serviceSelect()
+    public function serviceSelect($id)
     {
-        return view('service-select');
+        $plate_id = $id;
+        return view('service-select',compact('plate_id'));
     }
 
     public function notifications()
