@@ -21,11 +21,8 @@ return new class extends Migration
             $table->date('time_now')->nullable();
             $table->date('time_next')->nullable();
             $table->json('meta')->nullable();
-            $table->foreignId('user_id')->nullable()
-                ->constrained('users')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('plate_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('plate_id')->nullable();
             $table->timestamps();
         });
     }

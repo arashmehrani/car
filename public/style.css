@@ -8865,7 +8865,7 @@ input[type=number] {
     color: #fff;
 }
 .btn-plate-card {
-margin: -15px 0 0 -15px ;
+margin-top: -6px;
 }
 
 #plates-testimonials .item {
@@ -8889,4 +8889,7 @@ margin: -15px 0 0 -15px ;
 .dropdown-menu {
     text-align: start !important;
     direction: rtl!important;
+}
+.offcanvas-backdrop.show {
+    opacity: 0!important;
 }

@@ -19,41 +19,79 @@
             </div>
         </div>
         <!-- Element Heading -->
-{{--        <div class="element-heading">
-            <div class="row gx-2 align-items-end">
-                <div class="col-4 text-end"><a class="btn btn-warning btn-sm mb-4 text-white"
-                                               href="{{route('plate.new')}}">ماشین جدید </a>
-                </div>
-                <div class="col-8">
-                    <div class="image-gallery-text mb-4">
-                        <h6 class="mb-0">ماشین های من</h6>
+        {{--        <div class="element-heading">
+                    <div class="row gx-2 align-items-end">
+                        <div class="col-4 text-end"><a class="btn btn-warning btn-sm mb-4 text-white"
+                                                       href="{{route('plate.new')}}">ماشین جدید </a>
+                        </div>
+                        <div class="col-8">
+                            <div class="image-gallery-text mb-4">
+                                <h6 class="mb-0">ماشین های من</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>--}}
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+             aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title" id="staticBackdropLabel">Static Backdrop</h6>
+                        <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="mb-0">I will not close if you click outside me. Don't even try to press escape
+                            key.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                        <button class="btn btn-sm btn-success" type="button">I Understood</button>
                     </div>
                 </div>
             </div>
+        </div>
 
-        </div>--}}
     </div>
+
+
+
+
+
+
+
+
+
+
     <div class="container">
         <div id="plates-testimonials" class="owl-carousel owl-theme">
 
-            @foreach($plates as $plate)
-                <!-- plate slider -->
+        @foreach($plates as $plate)
+            <!-- plate slider -->
 
                 <div class="item" id="{{$plate->id}}">
-                    <div class="card shadow-sm">
+
+                    <div class="card">
                         <div class="card-body">
                             <div class="btn-plate-card">
                                 <div class="dropdown rtl">
-                                    <a style="font-size: 22px;" data-toggle="dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-plus-circle"></i>
+                                    <a style="font-size: 20px;" data-toggle="dropdown" href="#" role="button"
+                                       id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-pencil-square"></i>
                                     </a>
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li><a class="dropdown-item" href="#">حذف پلاک</a></li>
+                                        <li><a class="dropdown-item" href="#">ویرایش پلاک</a></li>
                                         <li><a class="dropdown-item" href="#">انتقال پلاک</a></li>
+                                        <li><a class="dropdown-item" data-bs-toggle="offcanvas"
+                                               data-bs-target="#delete_{{$plate->id}}" aria-controls="delete_{{$plate->id}}">حذف
+                                                پلاک</a></li>
                                     </ul>
                                 </div>
                             </div>
+
+
                             <div class="d-flex align-items-center justify-content-center">
                                 <p class="mb-2"><span>{{$plate->title}}</span></p>
                             </div>
@@ -88,6 +126,19 @@
                                             <span> <strong>ثبت نشده</strong> </span>
                                         </small>
                                     </p>
+
+                                </div>
+
+                            </div>
+                            <div class="offcanvas offcanvas-bottom" id="delete_{{$plate->id}}" tabindex="-1"
+                                 aria-labelledby="offcanvasBottomLabel" style="height: 59%!important;">
+                                <!-- Offcanvas Body -->
+                                <div class="offcanvas-body p-4">
+                                    <h6>حذف پلاک {{$plate->title}} ؟ </h6>
+                                    <p>آیا از حذف این پلاک و تمام اطلاعات آن مطمئن هستید؟</p>
+                                    <a href="#" class="btn btn-danger">حذف</a>
+                                    <a href="#" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas"
+                                       aria-label="Close">انصراف</a>
                                 </div>
                             </div>
                         </div>
@@ -99,43 +150,46 @@
                         </a>
                     </div>
 
+
+
+
                 </div>
 
             @endforeach
-                <div class="item">
-                    <div class="card" style="height: 236.6px">
-                        <div class="card-body">
-                            <div class="mt-5">
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <p class="mb-2"><span> خودرو جدید</span></p>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center">
+            <div class="item">
+                <div class="card" style="height: 252.6px">
+                    <div class="card-body mt-4">
+                        <div class="mt-5">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <p class="mb-2"><span> خودرو جدید</span></p>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center">
 
-                                    <div class="plate-div registration-ui">
-                                        <div class="plate-1">
-                                            <span>- -</span>
-                                            <span>- - -</span>
-                                            <span>- -</span>
-                                        </div>
-                                        <span class="plate-2">- -</span>
+                                <div class="plate-div registration-ui">
+                                    <div class="plate-1">
+                                        <span>- -</span>
+                                        <span>- - -</span>
+                                        <span>- -</span>
                                     </div>
+                                    <span class="plate-2">- -</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="add-services">
-                        <a class="text-white" href="{{route('plate.new')}}">
-                            <div class="add-service"><small>ثبت خودرو جدید</small></div>
-                        </a>
-                    </div>
-
                 </div>
+                <div class="add-services">
+                    <a class="text-white" href="{{route('plate.new')}}">
+                        <div class="add-service"><small>ثبت خودرو جدید</small></div>
+                    </a>
+                </div>
+
+            </div>
         </div>
 
     </div>
 
     <div class="container mt-3">
-        <div class="card bg-warning shadow-sm">
+        <div class="card bg-warning">
             <div class="card-body text-center">
                 <h3 class="mb-3">ویژه صاحبان تعمیرگاه ها</h3>
                 <p class="text-black">آیا مشتریان شما نیاز به مدیریت و یادآوری جهت سرویس های دوره ای دارند؟ اپلیکیشن
@@ -198,8 +252,9 @@
 
     <div class="container">
         <div class="card mt-3">
-            <div class="card-body text-center p-5 shadow-sm"><img class="mb-4" src="{{asset('img/banners/banner-02.png')}}"
-                                                        alt="">
+            <div class="card-body text-center p-5 shadow-sm"><img class="mb-4"
+                                                                  src="{{asset('img/banners/banner-02.png')}}"
+                                                                  alt="">
                 <h6 class="mb-4 lh-base">معرفی کسب و کار خودرویی شما در اپلیکیشن ماشین</h6><a
                     class="btn btn-creative btn-danger btn-lg" href="{{route('support')}}">شروع همکاری</a>
             </div>
@@ -234,18 +289,18 @@
                 }
             }
         });
-            var id = $(".owl-item.active :first-child").attr('id');
-            console.log('Image current is ' + id);
+        var id = $(".owl-item.active :first-child").attr('id');
+        console.log('Image current is ' + id);
 
     </script>
 
 @endsection
 
 @if(auth()->user()->name == 'کاربر جدید' or empty(auth()->user()->city) or empty(auth()->user()->state))
-    @section('javascript')
-        <script>
-            var profileModal = new bootstrap.Modal(document.getElementById('profile'), {})
-            profileModal.toggle()
-        </script>
-    @endsection
+@section('javascript')
+    <script>
+        var profileModal = new bootstrap.Modal(document.getElementById('profile'), {})
+        profileModal.toggle()
+    </script>
+@endsection
 @endif
