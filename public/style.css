@@ -8893,3 +8893,7 @@ margin-top: -6px;
 .offcanvas-backdrop.show {
     opacity: 0!important;
 }
+.text-justify{
+    text-align: justify;
+    text-justify: inter-word;
+}

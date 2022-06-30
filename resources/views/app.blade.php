@@ -41,7 +41,14 @@
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                         <li><a class="dropdown-item" href="{{route('plate.edit',$plate->id)}}">ویرایش
                                                 پلاک</a></li>
-                                        <li><a class="dropdown-item" href="#">انتقال پلاک</a></li>
+                                        @if(empty($plate->vin))
+                                            <li><a class="dropdown-item" data-bs-toggle="offcanvas"
+                                                   data-bs-target="#transfer_{{$plate->id}}"
+                                                   aria-controls="transfer_{{$plate->id}}">انتقال پلاک</a></li>
+                                        @else
+                                            <li><a class="dropdown-item" href="{{route('plate.transfer',$plate->id)}}">انتقال
+                                                    پلاک</a></li>
+                                        @endif
                                         <li><a class="dropdown-item" data-bs-toggle="offcanvas"
                                                data-bs-target="#delete_{{$plate->id}}"
                                                aria-controls="delete_{{$plate->id}}">حذف
@@ -100,6 +107,19 @@
                                        aria-label="Close">انصراف</a>
                                 </div>
                             </div>
+
+                            <div class="offcanvas offcanvas-bottom" id="transfer_{{$plate->id}}" tabindex="-1"
+                                 aria-labelledby="offcanvasBottomLabel">
+                                <!-- Offcanvas Body -->
+                                <div class="offcanvas-body p-4">
+                                    <p>برای انتقال این پلاک و تاریخچه سرویس های آن به شخص دیگر باید ابتدا بارکد VIN این
+                                        خودرو را ثبت نمایید سپس اقدام به انتقال کنید.</p>
+                                    <a href="{{route('plate.edit',$plate->id)}}" class="btn btn-primary">ویرایش</a>
+                                    <a class="btn btn-outline-secondary" data-bs-dismiss="offcanvas"
+                                       aria-label="Close">انصراف</a>
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>

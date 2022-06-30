@@ -5,6 +5,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\PlateController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupportController;
+use App\Http\Controllers\TransferController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,8 @@ Route::prefix('app')->middleware(['auth'])->group(function () {
     Route::post('/plate/edit', [PlateController::class, 'editPost'])->name('plate.edit.post');
     Route::post('/plate/new', [PlateController::class, 'new']);
     Route::get('/plate/delete/{id}', [PlateController::class, 'delete'])->name('plate.delete');
+    Route::get('/plate/transfer/{id}', [TransferController::class, 'transfer'])->name('plate.transfer');
+    Route::post('/plate/transfer', [TransferController::class, 'transferPost'])->name('plate.transfer.post');
 
     /////// Service Routes
     Route::get('/service-select/{id}', [MainController::class, 'serviceSelect'])->name('service.select');

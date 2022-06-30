@@ -30,6 +30,7 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('type')->nullable()->default('car');
+            $table->boolean('pending')->default(false);
             $table->timestamps();
         });
     }

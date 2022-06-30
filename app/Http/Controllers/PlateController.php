@@ -42,7 +42,7 @@ class PlateController extends Controller
     public function delete($id)
     {
         $plate = Plate::where('id', $id)->where('user_id', Auth::id())->first();
-        if ($plate) {
+        if (!empty($plate)) {
             $plate->delete();
             return redirect()->back();
         } else {
@@ -53,7 +53,7 @@ class PlateController extends Controller
     public function edit($id)
     {
         $plate = Plate::where('id', $id)->where('user_id', Auth::id())->first();
-        if ($plate) {
+        if (!empty($plate)) {
             $companies = Company::all();
             return view('plate-edit', compact('plate', 'companies'));
         } else {
@@ -74,7 +74,7 @@ class PlateController extends Controller
             'km_average' => 'required|numeric',
         ]);
         $plate = Plate::where('id', $request->plate_id)->where('user_id', Auth::id())->first();
-        if ($plate) {
+        if (!empty($plate)) {
             $plateAll = $request->p1 . $request->p2 . $request->p3 . $request->p4;
             $plate->title = $request->title;
             $plate->p1 = $request->p1;

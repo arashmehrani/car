@@ -21,6 +21,6 @@ class ProfileController extends Controller
         $user->city = $request->city;
         $user->save();
         session()->flash('msg', 'مشخصات با موفقیت ویرایش شد');
-        return redirect()->back();
+        return redirect()->route('app');
     }
 }

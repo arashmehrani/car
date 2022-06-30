@@ -43,6 +43,8 @@ class AuthController extends Controller
             $user = User::where('phone', session('phone'))->first();
             $code = $user->token;
             if ($code == $request->code) {
+                $user->last_login = now();
+                $user->save();
                 auth()->login($user, true);
                 session()->forget('phone');
                 return redirect()->route('app');

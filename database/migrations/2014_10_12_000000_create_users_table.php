@@ -24,7 +24,8 @@ return new class extends Migration
             $table->string('state')->nullable();
             $table->string('city')->nullable();
             $table->string('pic')->nullable()->default('profile.png');
-            $table->tinyInteger('ban')->default(0);
+            $table->boolean('ban')->default(false);
+            $table->timestamp('last_login')->nullable();
             $table->string('type')->default('user');
             $table->rememberToken();
             $table->timestamps();
