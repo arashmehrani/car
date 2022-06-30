@@ -18,51 +18,8 @@
                 </div>
             </div>
         </div>
-        <!-- Element Heading -->
-        {{--        <div class="element-heading">
-                    <div class="row gx-2 align-items-end">
-                        <div class="col-4 text-end"><a class="btn btn-warning btn-sm mb-4 text-white"
-                                                       href="{{route('plate.new')}}">ماشین جدید </a>
-                        </div>
-                        <div class="col-8">
-                            <div class="image-gallery-text mb-4">
-                                <h6 class="mb-0">ماشین های من</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>--}}
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-             aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h6 class="modal-title" id="staticBackdropLabel">Static Backdrop</h6>
-                        <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="mb-0">I will not close if you click outside me. Don't even try to press escape
-                            key.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                        <button class="btn btn-sm btn-success" type="button">I Understood</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
-
-
-
-
-
-
-
-
-
 
     <div class="container">
         <div id="plates-testimonials" class="owl-carousel owl-theme">
@@ -82,10 +39,12 @@
                                     </a>
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li><a class="dropdown-item" href="#">ویرایش پلاک</a></li>
+                                        <li><a class="dropdown-item" href="{{route('plate.edit',$plate->id)}}">ویرایش
+                                                پلاک</a></li>
                                         <li><a class="dropdown-item" href="#">انتقال پلاک</a></li>
                                         <li><a class="dropdown-item" data-bs-toggle="offcanvas"
-                                               data-bs-target="#delete_{{$plate->id}}" aria-controls="delete_{{$plate->id}}">حذف
+                                               data-bs-target="#delete_{{$plate->id}}"
+                                               aria-controls="delete_{{$plate->id}}">حذف
                                                 پلاک</a></li>
                                     </ul>
                                 </div>
@@ -136,8 +95,8 @@
                                 <div class="offcanvas-body p-4">
                                     <h6>حذف پلاک {{$plate->title}} ؟ </h6>
                                     <p>آیا از حذف این پلاک و تمام اطلاعات آن مطمئن هستید؟</p>
-                                    <a href="#" class="btn btn-danger">حذف</a>
-                                    <a href="#" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas"
+                                    <a href="{{route('plate.delete',$plate->id)}}" class="btn btn-danger">حذف</a>
+                                    <a class="btn btn-outline-secondary" data-bs-dismiss="offcanvas"
                                        aria-label="Close">انصراف</a>
                                 </div>
                             </div>
@@ -149,9 +108,6 @@
                             <div class="add-service"><small>افزودن سرویس جدید</small></div>
                         </a>
                     </div>
-
-
-
 
                 </div>
 

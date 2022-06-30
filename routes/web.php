@@ -36,8 +36,11 @@ Route::prefix('app')->middleware(['auth'])->group(function () {
     Route::get('/', [MainController::class, 'app'])->name('app');
 
     /////// Plate Routes
-    Route::get('/plate-new', [MainController::class, 'plateNew'])->name('plate.new');
-    Route::post('/plate-new', [PlateController::class, 'plateNew']);
+    Route::get('/plate/new', [MainController::class, 'plateNew'])->name('plate.new');
+    Route::get('/plate/edit/{id}', [PlateController::class, 'edit'])->name('plate.edit');
+    Route::post('/plate/edit', [PlateController::class, 'editPost'])->name('plate.edit.post');
+    Route::post('/plate/new', [PlateController::class, 'new']);
+    Route::get('/plate/delete/{id}', [PlateController::class, 'delete'])->name('plate.delete');
 
     /////// Service Routes
     Route::get('/service-select/{id}', [MainController::class, 'serviceSelect'])->name('service.select');
