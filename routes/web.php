@@ -43,7 +43,11 @@ Route::prefix('app')->middleware(['auth'])->group(function () {
     Route::post('/plate/new', [PlateController::class, 'new']);
     Route::get('/plate/delete/{id}', [PlateController::class, 'delete'])->name('plate.delete');
     Route::get('/plate/transfer/{id}', [TransferController::class, 'transfer'])->name('plate.transfer');
+    Route::get('/plate/transfer/info/{id}', [TransferController::class, 'info'])->name('plate.transfer.info');
     Route::post('/plate/transfer', [TransferController::class, 'transferPost'])->name('plate.transfer.post');
+    Route::get('/plate/transfer/accept/{id}', [TransferController::class, 'accept'])->name('plate.transfer.accept');
+    Route::get('/plate/transfer/deny/{id}', [TransferController::class, 'deny'])->name('plate.transfer.deny');
+    Route::get('/plate/transfer/hide/{id}', [TransferController::class, 'hide'])->name('plate.transfer.hide');
 
     /////// Service Routes
     Route::get('/service-select/{id}', [MainController::class, 'serviceSelect'])->name('service.select');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\Plate;
+use App\Models\Transfer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,6 +23,12 @@ class MainController extends Controller
     public function app()
     {
         $plates = Plate::where('user_id', Auth::id())->get();
+        $transfer = Transfer::where('user_new', Auth::id())->where('pending', true)->first();
+        if (!empty($transfer)){
+            $plate = Plate::where('id',$transfer->plate_id)->first();
+            $vin = $plate->vin;
+            return view('app', compact('plates','transfer','vin'));
+        }
         return view('app', compact('plates'));
     }
 
@@ -59,7 +66,7 @@ class MainController extends Controller
     public function serviceSelect($id)
     {
         $plate_id = $id;
-        return view('service-select',compact('plate_id'));
+        return view('service-select', compact('plate_id'));
     }
 
     public function notifications()

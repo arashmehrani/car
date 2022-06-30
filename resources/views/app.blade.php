@@ -21,6 +21,21 @@
 
     </div>
 
+    @if(isset($transfer))
+        <div class="container">
+            <div class="alert custom-alert-3 alert-success alert-dismissible fade show" role="alert"><i
+                    class="bi bi-check-all"></i>
+                <div class="alert-text">
+                    <h6>انتقال تاریخچه خودرو</h6><span>درخواست جدیدی جهت انتقال تاریخچه خودرو با بارکد {{$vin}} به پروفایل شما وجود دارد.</span>
+                    <a class="btn btn-sm btn-success mt-2" href="{{route('plate.transfer.accept',$transfer->id)}}">دریافت
+                        تاریخچه</a>
+                    <a class="btn btn-sm btn-outline-danger mt-2" href="{{route('plate.transfer.deny',$transfer->id)}}">رد
+                        تاریخچه</a>
+                </div>
+            </div>
+        </div>
+    @endif
+
     <div class="container">
         <div id="plates-testimonials" class="owl-carousel owl-theme">
 
@@ -46,15 +61,22 @@
                                                    data-bs-target="#transfer_{{$plate->id}}"
                                                    aria-controls="transfer_{{$plate->id}}">انتقال پلاک</a></li>
                                         @else
-                                            <li><a class="dropdown-item" href="{{route('plate.transfer',$plate->id)}}">انتقال
-                                                    پلاک</a></li>
+                                            <li><a class="dropdown-item" @if($plate->pending == true)
+                                                href="{{route('plate.transfer.info',$plate->id)}}"
+                                                   @else
+                                                   href="{{route('plate.transfer',$plate->id)}}"
+                                                    @endif
+                                                >انتقال پلاک</a></li>
                                         @endif
                                         <li><a class="dropdown-item" data-bs-toggle="offcanvas"
                                                data-bs-target="#delete_{{$plate->id}}"
                                                aria-controls="delete_{{$plate->id}}">حذف
                                                 پلاک</a></li>
                                     </ul>
+
                                 </div>
+
+
                             </div>
 
 
@@ -72,6 +94,12 @@
                                     <span class="plate-2">{{$plate->p4}}</span>
                                 </div>
                             </div>
+                            @if($plate->pending == true)
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <a href="{{route('plate.transfer.info',$plate->id)}}"><span
+                                            class="m-1 badge bg-danger">در انتظار تایید انتقال</span></a>
+                                </div>
+                            @endif
 
                             <div class="single-testimonial-slide">
 

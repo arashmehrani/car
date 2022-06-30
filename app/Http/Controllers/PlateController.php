@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\Plate;
+use App\Models\Transfer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,7 +44,13 @@ class PlateController extends Controller
     {
         $plate = Plate::where('id', $id)->where('user_id', Auth::id())->first();
         if (!empty($plate)) {
-            $plate->delete();
+            $transfer = Transfer::where('user_old', Auth::id())->where('plate_id', $id)->where('pending', true)->first();
+            if (!empty($transfer)) {
+                $plate->user_id = null;
+                $plate->save();
+            } else {
+                $plate->delete();
+            }
             return redirect()->back();
         } else {
             return redirect()->route('app');

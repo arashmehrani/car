@@ -4,7 +4,7 @@
     <div class="container">
         <!-- Element Heading -->
         <div class="element-heading">
-            <h6>انتقال پلاک</h6>
+            <h6>انتقال در انتظار تایید</h6>
         </div>
     </div>
 
@@ -12,9 +12,9 @@
         <div class="card">
             <div class="card-body">
                 <div class="alert custom-alert-1 alert-info alert-dismissible fade show text-justify" role="alert">
-                    توجه: در صورت انتقال پلاک به مالک جدید و تایید این انتقال توسط آن شخص، تمام تاریخچه این خودرو از
-                    حساب
-                    کاربری شما حذف و به حساب کاربری مالک جدید منتقل خواهد شد.
+                    توجه: شما قبلا درخواستی جهت انتقال تاریخچه سرویس های این خودرو به مالک جدید به
+                    شماره {{$new_user->phone}} ثبت کرده
+                    اید. در صورت انصراف از انتقال لطفا روی دکمه انصراف از انتقال کلیک کنید.
                 </div>
 
                 <div class="d-flex align-items-center justify-content-center mt-3">
@@ -35,31 +35,15 @@
                 <form method="post" action="{{route('plate.transfer.post')}}">
                     @csrf
                     <input type="hidden" value="{{$plate->id}}" name="plate_id">
-                    <div class="form-group mt-3">
-                        <label class="form-label" for="km_average">شماره موبایل مالک جدید:</label>
-                        <input id="phone" name="phone" class="form-control" type="number" required
-                               value="{{old('phone')}}"
-                               oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);
-                               this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                               placeholder="شماره موبایل مالک جدید خودرو" maxlength="11">
-                    </div>
-                    @if ($errors->has('phone'))
-                        <p>
-                            <small class="text-danger">{{ $errors->first('phone') }}</small>
-                        </p>
-                    @endif
-                    <div class="form-check">
-                        <input class="form-check-input" id="keep" type="checkbox" value="keep" checked>
-                        <label class="form-check-label text-justify" for="keep" style="font-size: 13px;">نمایش تا زمان تایید مالک جدید</label>
-                        <p class="text-justify" style="font-size: 12px;">
-                            <small>با فعال کردن این گزینه، تاریخچه سرویس های این پلاک تا زمان تایید انتقال توسط مالک جدید در اکانت شما قابل مشاهده باقی می ماند.</small>
-
-                        </p>
-                    </div>
-                    <button class="mt-3 btn btn-success w-100 d-flex align-items-center justify-content-center"
+                    <input type="hidden" value="{{$transfer->id}}" name="transfer_id">
+                    <button class="btn btn-danger w-100 d-flex align-items-center justify-content-center"
                             type="submit">
-                        درخواست انتقال
+                        انصراف از انتقال
                     </button>
+                    <a href="{{route('plate.transfer.hide',$plate->id)}}"
+                       class="mt-2 btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center">
+                        عدم نمایش این پلاک
+                    </a>
 
                 </form>
             @if(Session::has('msg'))

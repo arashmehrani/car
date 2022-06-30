@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_new')->nullable();
             $table->unsignedBigInteger('plate_id')->nullable();
             $table->boolean('pending')->default(false);
+            $table->boolean('accepted')->nullable();
             $table->timestamps();
         });
     }
