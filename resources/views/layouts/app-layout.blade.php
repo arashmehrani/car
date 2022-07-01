@@ -43,27 +43,27 @@
 <div class="internet-connection-status" id="internetStatus"></div>
 <!-- Header Area -->
 <div class="header-area" id="headerArea">
-    <div class="bg-warning shadow-sm">
-        <div class="container">
-            <!-- Header Content -->
-            <div
-                class="header-content header-style-two position-relative d-flex align-items-center justify-content-between">
-                <!-- Logo Wrapper -->
-                <div class="logo-wrapper"><a href="{{route('app')}}"><span class="text-white">اپلیکیشن </span></a>
-                </div>
-                <div class="navbar-content-wrapper d-flex align-items-center">
-                    <!-- Navbar Toggler -->
-                    <div class="navbar--toggler" id="affanNavbarToggler" data-bs-toggle="offcanvas"
-                         data-bs-target="#affanOffcanvas" aria-controls="affanOffcanvas">
-                        <div class="span-wrap"><span class="d-block"></span><span class="d-block"></span><span
-                                class="d-block"></span></div>
-                    </div>
-                </div>
+    <div class="container bg-warning">
+        <!-- Header Content -->
+        <div class="header-content position-relative d-flex align-items-center justify-content-between">
+            <!-- Back Button -->
+            <div class="back-button">
+                <a href="{{url()->previous()}}"><i class="bi bi-arrow-left-short text-white"></i></a>
             </div>
-            <!-- # Header Two Layout End -->
+            <!-- Page Title -->
+            <div class="page-heading">
+                <a href="{{route('app')}}"><h6 class="mb-0 text-white">خودرو هوشمند</h6></a>
+            </div>
+            <!-- Navbar Toggler -->
+            <div class="navbar--toggler" id="affanNavbarToggler" data-bs-toggle="offcanvas"
+                 data-bs-target="#affanOffcanvas" aria-controls="affanOffcanvas">
+                <div class="span-wrap"><span class="d-block"></span><span class="d-block"></span><span
+                        class="d-block"></span></div>
+            </div>
         </div>
     </div>
 </div>
+
 <!-- # Sidenav  -->
 <!-- Offcanvas -->
 <div class="offcanvas offcanvas-end" id="affanOffcanvas" data-bs-scroll="true" tabindex="-1"

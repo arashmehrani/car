@@ -107,17 +107,45 @@
                                     <p class="fw-bold mt-2 mb-1">
                                         سرویس های پیش رو:
                                     </p>
+                                    @php
+                                    $romo = \App\Models\Service::where('user_id',\Illuminate\Support\Facades\Auth::id())
+                                    ->where('plate_id', $plate->id)->where('type','روغن موتور')->latest()->first();
+
+                                    $tas = \App\Models\Service::where('user_id',\Illuminate\Support\Facades\Auth::id())
+                                    ->where('plate_id', $plate->id)->where('type','تسمه')->latest()->first();
+
+                                    $lent = \App\Models\Service::where('user_id',\Illuminate\Support\Facades\Auth::id())
+                                    ->where('plate_id', $plate->id)->where('type','لنت')->latest()->first();
+                                    @endphp
                                     <p>
-                                        <small>تعویض بعدی روغن موتور در
-                                            <span> <strong>ثبت نشده</strong> </span>
+                                        <small>تعویض روغن موتور در کیلومتر:
+                                            <span>
+                                            @if(!empty($romo))
+                                                <strong>{{$romo->km_next}}</strong>
+                                            @else
+                                                    <strong>ثبت نشده</strong>
+                                            @endif
+                                            </span>
                                         </small>
                                         <br/>
-                                        <small>تعویض بعدی تسمه تایم
-                                            <span> <strong>ثبت نشده</strong> </span>
+                                        <small>تعویض تسمه تایم در کیلومتر:
+                                            <span>
+                                            @if(!empty($tas))
+                                                    <strong>{{$tas->km_next}}</strong>
+                                                @else
+                                                    <strong>ثبت نشده</strong>
+                                                @endif
+                                            </span>
                                         </small>
                                         <br/>
-                                        <small>تعویض بعدی روغن گیربکس
-                                            <span> <strong>ثبت نشده</strong> </span>
+                                        <small>تعویض لنت ها در کیلومتر:
+                                            <span>
+                                            @if(!empty($lent))
+                                                    <strong>{{$lent->km_next}}</strong>
+                                                @else
+                                                    <strong>ثبت نشده</strong>
+                                                @endif
+                                            </span>
                                         </small>
                                     </p>
 

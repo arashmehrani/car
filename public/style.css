@@ -6572,11 +6572,10 @@ input[type=color].form-control.is-valid, input[type=color].form-control:valid {
   position: relative;
   z-index: 1;
   margin-bottom: 1rem;
-  border-left: 0.5rem solid #0d5afd !important;
+  border-right: 0.5rem solid #0d5afd !important;
 }
 .timeline-card::after {
   position: absolute;
-  content: "";
   bottom: 1.5rem;
   right: 1.5rem;
   background-color: #0d5afd;
@@ -6603,7 +6602,7 @@ input[type=color].form-control.is-valid, input[type=color].form-control:valid {
   margin: 0.125rem;
 }
 .timeline-card.bg-success {
-  border-left-color: #2ecc4a !important;
+  border-right-color: #2ecc4a !important;
   background-color: #ffffff !important;
 }
 .timeline-card.bg-success .timeline-icon svg,
@@ -6614,7 +6613,7 @@ input[type=color].form-control.is-valid, input[type=color].form-control:valid {
   background-color: #2ecc4a;
 }
 .timeline-card.bg-danger {
-  border-left-color: #ea4c62 !important;
+    border-right-color: #ea4c62 !important;
   background-color: #ffffff !important;
 }
 .timeline-card.bg-danger .timeline-icon svg,
@@ -6625,7 +6624,7 @@ input[type=color].form-control.is-valid, input[type=color].form-control:valid {
   background-color: #ea4c62;
 }
 .timeline-card.bg-warning {
-  border-left-color: #f1b10f !important;
+    border-right-color: #f1b10f !important;
   background-color: #ffffff !important;
 }
 .timeline-card.bg-warning .timeline-icon svg,
@@ -6636,7 +6635,7 @@ input[type=color].form-control.is-valid, input[type=color].form-control:valid {
   background-color: #f1b10f;
 }
 .timeline-card.bg-info {
-  border-left-color: #1787b8 !important;
+    border-right-color: #1787b8 !important;
   background-color: #ffffff !important;
 }
 .timeline-card.bg-info .timeline-icon svg,
@@ -6647,7 +6646,7 @@ input[type=color].form-control.is-valid, input[type=color].form-control:valid {
   background-color: #1787b8;
 }
 .timeline-card.bg-dark {
-  border-left-color: #061238 !important;
+    border-right-color: #061238 !important;
   background-color: #ffffff !important;
 }
 .timeline-card.bg-dark .timeline-icon svg,
@@ -6658,7 +6657,7 @@ input[type=color].form-control.is-valid, input[type=color].form-control:valid {
   background-color: #061238;
 }
 .timeline-card.bg-secondary {
-  border-left-color: #8480ae !important;
+    border-right-color: #8480ae !important;
   background-color: #ffffff !important;
 }
 .timeline-card.bg-secondary .timeline-icon svg,

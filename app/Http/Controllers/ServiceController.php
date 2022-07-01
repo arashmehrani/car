@@ -127,7 +127,7 @@ class ServiceController extends Controller
             $service->title = $request->title;
             $service->price = $request->price;
             $service->workshop = $request->workshop;
-            $service->type = 'تسمه ها';
+            $service->type = 'تسمه';
             $service->km_now = $request->km_now;
             $service->km_next = $request->km_next;
             $service->time_now = now();

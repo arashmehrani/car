@@ -6,6 +6,7 @@ use App\Http\Controllers\PlateController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SupportController;
+use App\Http\Controllers\TimelineController;
 use App\Http\Controllers\TransferController;
 use Illuminate\Support\Facades\Route;
 
@@ -81,6 +82,9 @@ Route::prefix('app')->middleware(['auth'])->group(function () {
 
     Route::get('/service/bime/{id}', [ServiceController::class, 'bime'])->name('service.bime');
     Route::post('/service/bime', [ServiceController::class, 'bimePost'])->name('service.bime.post');
+
+    /////// Notifications Routes
+    Route::get('/timeline/romo/{id}', [TimelineController::class, 'romo'])->name('timeline.romo');
 
     /////// Notifications Routes
     Route::get('/notifications', [MainController::class, 'notifications'])->name('notifications');
