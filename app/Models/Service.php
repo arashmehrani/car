@@ -9,6 +9,10 @@ class Service extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'meta' => 'array'
+    ];
+
     public function notifications()
     {
         return $this->hasMany(Notification::class);

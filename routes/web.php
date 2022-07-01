@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PlateController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SupportController;
 use App\Http\Controllers\TransferController;
 use Illuminate\Support\Facades\Route;
@@ -51,6 +52,35 @@ Route::prefix('app')->middleware(['auth'])->group(function () {
 
     /////// Service Routes
     Route::get('/service-select/{id}', [MainController::class, 'serviceSelect'])->name('service.select');
+    Route::get('/service/romo/{id}', [ServiceController::class, 'romo'])->name('service.romo');
+    Route::post('/service/romo', [ServiceController::class, 'romoPost'])->name('service.romo.post');
+
+    Route::get('/service/rogi/{id}', [ServiceController::class, 'rogi'])->name('service.rogi');
+    Route::post('/service/rogi', [ServiceController::class, 'rogiPost'])->name('service.rogi.post');
+
+    Route::get('/service/tas/{id}', [ServiceController::class, 'tas'])->name('service.tas');
+    Route::post('/service/tas', [ServiceController::class, 'tasPost'])->name('service.tas.post');
+
+    Route::get('/service/sham/{id}', [ServiceController::class, 'sham'])->name('service.sham');
+    Route::post('/service/sham', [ServiceController::class, 'shamPost'])->name('service.sham.post');
+
+    Route::get('/service/lent/{id}', [ServiceController::class, 'lent'])->name('service.lent');
+    Route::post('/service/lent', [ServiceController::class, 'lentPost'])->name('service.lent.post');
+
+    Route::get('/service/battery/{id}', [ServiceController::class, 'battery'])->name('service.battery');
+    Route::post('/service/battery', [ServiceController::class, 'batteryPost'])->name('service.battery.post');
+
+    Route::get('/service/clutch/{id}', [ServiceController::class, 'clutch'])->name('service.clutch');
+    Route::post('/service/clutch', [ServiceController::class, 'clutchPost'])->name('service.clutch.post');
+
+    Route::get('/service/vasher/{id}', [ServiceController::class, 'vasher'])->name('service.vasher');
+    Route::post('/service/vasher', [ServiceController::class, 'vasherPost'])->name('service.vasher.post');
+
+    Route::get('/service/lastik/{id}', [ServiceController::class, 'lastik'])->name('service.lastik');
+    Route::post('/service/lastik', [ServiceController::class, 'lastikPost'])->name('service.lastik.post');
+
+    Route::get('/service/bime/{id}', [ServiceController::class, 'bime'])->name('service.bime');
+    Route::post('/service/bime', [ServiceController::class, 'bimePost'])->name('service.bime.post');
 
     /////// Notifications Routes
     Route::get('/notifications', [MainController::class, 'notifications'])->name('notifications');

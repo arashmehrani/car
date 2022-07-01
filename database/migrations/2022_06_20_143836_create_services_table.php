@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->unsignedInteger('price')->nullable();
+            $table->string('workshop')->nullable();
+            $table->string('type')->nullable();
             $table->unsignedInteger('km_now')->nullable();
             $table->unsignedInteger('km_next')->nullable();
             $table->date('time_now')->nullable();
@@ -23,6 +26,7 @@ return new class extends Migration
             $table->json('meta')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('plate_id')->nullable();
+            $table->boolean('passed')->nullable();
             $table->timestamps();
         });
     }

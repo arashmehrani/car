@@ -49,7 +49,7 @@
                         </p>
                     @endif
                     <div class="form-check">
-                        <input class="form-check-input" id="keep" type="checkbox" value="keep" checked>
+                        <input class="form-check-input" name="keep" id="keep" type="checkbox" value="keep" checked>
                         <label class="form-check-label text-justify" for="keep" style="font-size: 13px;">نمایش تا زمان تایید مالک جدید</label>
                         <p class="text-justify" style="font-size: 12px;">
                             <small>با فعال کردن این گزینه، تاریخچه سرویس های این پلاک تا زمان تایید انتقال توسط مالک جدید در اکانت شما قابل مشاهده باقی می ماند.</small>

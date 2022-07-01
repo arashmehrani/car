@@ -24,10 +24,10 @@ class MainController extends Controller
     {
         $plates = Plate::where('user_id', Auth::id())->get();
         $transfer = Transfer::where('user_new', Auth::id())->where('pending', true)->first();
-        if (!empty($transfer)){
-            $plate = Plate::where('id',$transfer->plate_id)->first();
+        if (!empty($transfer)) {
+            $plate = Plate::where('id', $transfer->plate_id)->first();
             $vin = $plate->vin;
-            return view('app', compact('plates','transfer','vin'));
+            return view('app', compact('plates', 'transfer', 'vin'));
         }
         return view('app', compact('plates'));
     }
@@ -65,8 +65,11 @@ class MainController extends Controller
 
     public function serviceSelect($id)
     {
-        $plate_id = $id;
-        return view('service-select', compact('plate_id'));
+        $plate = Plate::where('id', $id)->where('user_id', Auth::id())->first();
+        if (!empty($plate)) {
+            return view('service-select', compact('id'));
+        }
+        return redirect()->route('app');
     }
 
     public function notifications()
