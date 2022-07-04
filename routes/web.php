@@ -83,8 +83,17 @@ Route::prefix('app')->middleware(['auth'])->group(function () {
     Route::get('/service/bime/{id}', [ServiceController::class, 'bime'])->name('service.bime');
     Route::post('/service/bime', [ServiceController::class, 'bimePost'])->name('service.bime.post');
 
-    /////// Notifications Routes
+    /////// Timeline Routes
+    Route::get('/timeline/battery/{id}', [TimelineController::class, 'battery'])->name('timeline.battery');
+    Route::get('/timeline/bime/{id}', [TimelineController::class, 'bime'])->name('timeline.bime');
+    Route::get('/timeline/clutch/{id}', [TimelineController::class, 'clutch'])->name('timeline.clutch');
+    Route::get('/timeline/lastik/{id}', [TimelineController::class, 'lastik'])->name('timeline.lastik');
+    Route::get('/timeline/lent/{id}', [TimelineController::class, 'lent'])->name('timeline.lent');
+    Route::get('/timeline/rogi/{id}', [TimelineController::class, 'rogi'])->name('timeline.rogi');
     Route::get('/timeline/romo/{id}', [TimelineController::class, 'romo'])->name('timeline.romo');
+    Route::get('/timeline/sham/{id}', [TimelineController::class, 'sham'])->name('timeline.sham');
+    Route::get('/timeline/tas/{id}', [TimelineController::class, 'tas'])->name('timeline.tas');
+    Route::get('/timeline/vasher/{id}', [TimelineController::class, 'vasher'])->name('timeline.vasher');
 
     /////// Notifications Routes
     Route::get('/notifications', [MainController::class, 'notifications'])->name('notifications');

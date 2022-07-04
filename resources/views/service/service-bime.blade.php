@@ -15,7 +15,7 @@
                     @csrf
                     <input type="hidden" name="plate_id" value="{{$id}}">
                     <div class="form-group">
-                        <label class="form-label" for="title">شرکت بیمه کننده</label>
+                        <label class="form-label" for="title">بیمه گذار</label>
                         <input class="form-control" id="title" name="title" type="text" placeholder="مثال: بیمه دانا"
                                value="{{old('title')}}" required>
                     </div>

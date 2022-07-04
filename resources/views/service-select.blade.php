@@ -27,7 +27,7 @@
                     </div>
                 </div>
 
-                <!-- Single Top Service Card -->
+                <!-- Single romo Service Card -->
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
@@ -52,7 +52,8 @@
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-center">
-                                            <a class="btn m-1 btn-light shadow-sm" href="{{route('timeline.romo',$id)}}">
+                                            <a class="btn m-1 btn-light shadow-sm"
+                                               href="{{route('timeline.romo',$id)}}">
                                                 <svg class="bi bi-eye me-2" width="16" height="16" viewBox="0 0 16 16"
                                                      fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd"
@@ -72,7 +73,7 @@
                                             <div class="timeline-text mb-0"><span
                                                     class="badge bg-secondary mb-2 rounded-pill">آخرین ثبت: هرگز</span>
                                                 <p class="mb-1">کیلومتر بعدی تعویض: <strong>ثبت نشده</strong></p>
-                                                <p>زمان بعدی تعویض: <strong>ثبت نشده</strong> </p>
+                                                <p>زمان بعدی تعویض: <strong>ثبت نشده</strong></p>
                                             </div>
                                         </div>
                                     </div>
@@ -97,7 +98,7 @@
                     </div>
                 </div>
 
-                <!-- Single Top Service Card -->
+                <!-- Single rogi Service Card -->
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
@@ -113,13 +114,14 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between">
                                             <div class="timeline-text mb-0"><span
-                                                    class="badge bg-secondary mb-2 rounded-pill">{{$rogi->created_at->diffForHumans()}}</span>
-                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$rogi->km_next}}</span></p>
-                                                <p>زمان بعدی تعویض: <span>{{$rogi->km_next}}</span> دیگر </p>
+                                                    class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$romo->km_next}}</span></p>
+                                                <p>زمان بعدی تعویض: <span>{{$romo->km_next}}</span> دیگر </p>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-center">
-                                            <a class="btn m-1 btn-light shadow-sm" href="#">
+                                            <a class="btn m-1 btn-light shadow-sm"
+                                               href="{{route('timeline.rogi',$id)}}">
                                                 <svg class="bi bi-eye me-2" width="16" height="16" viewBox="0 0 16 16"
                                                      fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd"
@@ -133,13 +135,13 @@
                                     </div>
                                 </div>
                             @else
-                                <div class="card bg-secondary timeline-card bg-light mt-3 shadow-sm">
+                                <div class="card timeline-card bg-secondary mt-3 shadow-sm">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between">
                                             <div class="timeline-text mb-0"><span
                                                     class="badge bg-secondary mb-2 rounded-pill">آخرین ثبت: هرگز</span>
                                                 <p class="mb-1">کیلومتر بعدی تعویض: <strong>ثبت نشده</strong></p>
-                                                <p>زمان بعدی تعویض: <strong>ثبت نشده</strong> </p>
+                                                <p>زمان بعدی تعویض: <strong>ثبت نشده</strong></p>
                                             </div>
                                         </div>
                                     </div>
@@ -163,7 +165,7 @@
                     </div>
                 </div>
 
-                <!-- Single Top Service Card -->
+                <!-- Single tas Service Card -->
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
@@ -174,15 +176,44 @@
                             <h6 class="mt-2 d-block text-truncate text-center">
                                 تسمه ها (تایم و...)</h6>
                             <!-- Service info -->
-                            <p class="">
-                                <small>آخرین ثبت سرویس:
-                                    @if(!empty($tas))
-                                        <span>{{$tas->created_at->diffForHumans()}}</span>
-                                    @else
-                                        <strong>ثبت نشده</strong>
-                                    @endif
-                                </small>
-                            </p>
+                            @if(!empty($tas))
+                                <div class="card timeline-card bg-light mt-3 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="timeline-text mb-0"><span
+                                                    class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$romo->km_next}}</span></p>
+                                                <p>زمان بعدی تعویض: <span>{{$romo->km_next}}</span> دیگر </p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <a class="btn m-1 btn-light shadow-sm"
+                                               href="{{route('timeline.tas',$id)}}">
+                                                <svg class="bi bi-eye me-2" width="16" height="16" viewBox="0 0 16 16"
+                                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                          d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"></path>
+                                                    <path fill-rule="evenodd"
+                                                          d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"></path>
+                                                </svg>
+                                                نمایش جزئیات</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            @else
+                                <div class="card timeline-card bg-secondary mt-3 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="timeline-text mb-0"><span
+                                                    class="badge bg-secondary mb-2 rounded-pill">آخرین ثبت: هرگز</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <strong>ثبت نشده</strong></p>
+                                                <p>زمان بعدی تعویض: <strong>ثبت نشده</strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                         <div class="add-services">
                             <a class="text-white" href="{{route('service.tas',$id)}}">
@@ -201,7 +232,7 @@
                     </div>
                 </div>
 
-                <!-- Single Top Service Card -->
+                <!-- Single sham Service Card -->
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
@@ -212,15 +243,44 @@
                             <h6 class="mt-2 d-block text-truncate text-center">
                                 شمع و وایر ها</h6>
                             <!-- Service info -->
-                            <p class="">
-                                <small>آخرین ثبت سرویس:
-                                    @if(!empty($sham))
-                                        <span>{{$sham->created_at->diffForHumans()}}</span>
-                                    @else
-                                        <strong>ثبت نشده</strong>
-                                    @endif
-                                </small>
-                            </p>
+                            @if(!empty($sham))
+                                <div class="card timeline-card bg-light mt-3 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="timeline-text mb-0"><span
+                                                    class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$romo->km_next}}</span></p>
+                                                <p>زمان بعدی تعویض: <span>{{$romo->km_next}}</span> دیگر </p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <a class="btn m-1 btn-light shadow-sm"
+                                               href="{{route('timeline.sham',$id)}}">
+                                                <svg class="bi bi-eye me-2" width="16" height="16" viewBox="0 0 16 16"
+                                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                          d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"></path>
+                                                    <path fill-rule="evenodd"
+                                                          d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"></path>
+                                                </svg>
+                                                نمایش جزئیات</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            @else
+                                <div class="card timeline-card bg-secondary mt-3 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="timeline-text mb-0"><span
+                                                    class="badge bg-secondary mb-2 rounded-pill">آخرین ثبت: هرگز</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <strong>ثبت نشده</strong></p>
+                                                <p>زمان بعدی تعویض: <strong>ثبت نشده</strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                         <div class="add-services">
                             <a class="text-white" href="{{route('service.sham',$id)}}">
@@ -239,7 +299,7 @@
                     </div>
                 </div>
 
-                <!-- Single Top Service Card -->
+                <!-- Single lent Service Card -->
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
@@ -250,15 +310,44 @@
                             <h6 class="mt-2 d-block text-truncate text-center">
                                 لنت های ترمز</h6>
                             <!-- Service info -->
-                            <p class="">
-                                <small>آخرین ثبت سرویس:
-                                    @if(!empty($lent))
-                                        <span>{{$lent->created_at->diffForHumans()}}</span>
-                                    @else
-                                        <strong>ثبت نشده</strong>
-                                    @endif
-                                </small>
-                            </p>
+                            @if(!empty($lent))
+                                <div class="card timeline-card bg-light mt-3 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="timeline-text mb-0"><span
+                                                    class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$romo->km_next}}</span></p>
+                                                <p>زمان بعدی تعویض: <span>{{$romo->km_next}}</span> دیگر </p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <a class="btn m-1 btn-light shadow-sm"
+                                               href="{{route('timeline.lent',$id)}}">
+                                                <svg class="bi bi-eye me-2" width="16" height="16" viewBox="0 0 16 16"
+                                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                          d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"></path>
+                                                    <path fill-rule="evenodd"
+                                                          d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"></path>
+                                                </svg>
+                                                نمایش جزئیات</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            @else
+                                <div class="card timeline-card bg-secondary mt-3 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="timeline-text mb-0"><span
+                                                    class="badge bg-secondary mb-2 rounded-pill">آخرین ثبت: هرگز</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <strong>ثبت نشده</strong></p>
+                                                <p>زمان بعدی تعویض: <strong>ثبت نشده</strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                         <div class="add-services">
                             <a class="text-white" href="{{route('service.lent',$id)}}">
@@ -277,7 +366,7 @@
                     </div>
                 </div>
 
-                <!-- Single Top Service Card -->
+                <!-- Single battery Service Card -->
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
@@ -288,15 +377,44 @@
                             <h6 class="mt-2 d-block text-truncate text-center">
                                 باتری</h6>
                             <!-- Service info -->
-                            <p class="">
-                                <small>آخرین ثبت سرویس:
-                                    @if(!empty($battery))
-                                        <span>{{$battery->created_at->diffForHumans()}}</span>
-                                    @else
-                                        <strong>ثبت نشده</strong>
-                                    @endif
-                                </small>
-                            </p>
+                            @if(!empty($battery))
+                                <div class="card timeline-card bg-light mt-3 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="timeline-text mb-0"><span
+                                                    class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$romo->km_next}}</span></p>
+                                                <p>زمان بعدی تعویض: <span>{{$romo->km_next}}</span> دیگر </p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <a class="btn m-1 btn-light shadow-sm"
+                                               href="{{route('timeline.battery',$id)}}">
+                                                <svg class="bi bi-eye me-2" width="16" height="16" viewBox="0 0 16 16"
+                                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                          d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"></path>
+                                                    <path fill-rule="evenodd"
+                                                          d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"></path>
+                                                </svg>
+                                                نمایش جزئیات</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            @else
+                                <div class="card timeline-card bg-secondary mt-3 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="timeline-text mb-0"><span
+                                                    class="badge bg-secondary mb-2 rounded-pill">آخرین ثبت: هرگز</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <strong>ثبت نشده</strong></p>
+                                                <p>زمان بعدی تعویض: <strong>ثبت نشده</strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                         <div class="add-services">
                             <a class="text-white" href="{{route('service.battery',$id)}}">
@@ -315,7 +433,7 @@
                     </div>
                 </div>
 
-                <!-- Single Top Service Card -->
+                <!-- Single clutch Service Card -->
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
@@ -326,15 +444,44 @@
                             <h6 class="mt-2 d-block text-truncate text-center">
                                 دیسک و صفحه کلاچ</h6>
                             <!-- Service info -->
-                            <p class="">
-                                <small>آخرین ثبت سرویس:
-                                    @if(!empty($clutch))
-                                        <span>{{$clutch->created_at->diffForHumans()}}</span>
-                                    @else
-                                        <strong>ثبت نشده</strong>
-                                    @endif
-                                </small>
-                            </p>
+                            @if(!empty($clutch))
+                                <div class="card timeline-card bg-light mt-3 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="timeline-text mb-0"><span
+                                                    class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$romo->km_next}}</span></p>
+                                                <p>زمان بعدی تعویض: <span>{{$romo->km_next}}</span> دیگر </p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <a class="btn m-1 btn-light shadow-sm"
+                                               href="{{route('timeline.clutch',$id)}}">
+                                                <svg class="bi bi-eye me-2" width="16" height="16" viewBox="0 0 16 16"
+                                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                          d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"></path>
+                                                    <path fill-rule="evenodd"
+                                                          d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"></path>
+                                                </svg>
+                                                نمایش جزئیات</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            @else
+                                <div class="card timeline-card bg-secondary mt-3 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="timeline-text mb-0"><span
+                                                    class="badge bg-secondary mb-2 rounded-pill">آخرین ثبت: هرگز</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <strong>ثبت نشده</strong></p>
+                                                <p>زمان بعدی تعویض: <strong>ثبت نشده</strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                         <div class="add-services">
                             <a class="text-white" href="{{route('service.clutch',$id)}}">
@@ -353,7 +500,7 @@
                     </div>
                 </div>
 
-                <!-- Single Top Service Card -->
+                <!-- Single vasher Service Card -->
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
@@ -364,15 +511,44 @@
                             <h6 class="mt-2 d-block text-truncate text-center">
                                 واشر سر سیلندر</h6>
                             <!-- Service info -->
-                            <p class="">
-                                <small>آخرین ثبت سرویس:
-                                    @if(!empty($vasher))
-                                        <span>{{$vasher->created_at->diffForHumans()}}</span>
-                                    @else
-                                        <strong>ثبت نشده</strong>
-                                    @endif
-                                </small>
-                            </p>
+                            @if(!empty($vasher))
+                                <div class="card timeline-card bg-light mt-3 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="timeline-text mb-0"><span
+                                                    class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$romo->km_next}}</span></p>
+                                                <p>زمان بعدی تعویض: <span>{{$romo->km_next}}</span> دیگر </p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <a class="btn m-1 btn-light shadow-sm"
+                                               href="{{route('timeline.vasher',$id)}}">
+                                                <svg class="bi bi-eye me-2" width="16" height="16" viewBox="0 0 16 16"
+                                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                          d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"></path>
+                                                    <path fill-rule="evenodd"
+                                                          d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"></path>
+                                                </svg>
+                                                نمایش جزئیات</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            @else
+                                <div class="card timeline-card bg-secondary mt-3 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="timeline-text mb-0"><span
+                                                    class="badge bg-secondary mb-2 rounded-pill">آخرین ثبت: هرگز</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <strong>ثبت نشده</strong></p>
+                                                <p>زمان بعدی تعویض: <strong>ثبت نشده</strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                         <div class="add-services">
                             <a class="text-white" href="{{route('service.vasher',$id)}}">
@@ -391,8 +567,7 @@
                     </div>
                 </div>
 
-
-                <!-- Single Top Service Card -->
+                <!-- Single lastik Service Card -->
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
@@ -403,15 +578,44 @@
                             <h6 class="mt-2 d-block text-truncate text-center">
                                 لاستیک ها</h6>
                             <!-- Service info -->
-                            <p class="">
-                                <small>آخرین ثبت سرویس:
-                                    @if(!empty($lastik))
-                                        <span>{{$lastik->created_at->diffForHumans()}}</span>
-                                    @else
-                                        <strong>ثبت نشده</strong>
-                                    @endif
-                                </small>
-                            </p>
+                            @if(!empty($lastik))
+                                <div class="card timeline-card bg-light mt-3 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="timeline-text mb-0"><span
+                                                    class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$romo->km_next}}</span></p>
+                                                <p>زمان بعدی تعویض: <span>{{$romo->km_next}}</span> دیگر </p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <a class="btn m-1 btn-light shadow-sm"
+                                               href="{{route('timeline.lastik',$id)}}">
+                                                <svg class="bi bi-eye me-2" width="16" height="16" viewBox="0 0 16 16"
+                                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                          d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"></path>
+                                                    <path fill-rule="evenodd"
+                                                          d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"></path>
+                                                </svg>
+                                                نمایش جزئیات</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            @else
+                                <div class="card timeline-card bg-secondary mt-3 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="timeline-text mb-0"><span
+                                                    class="badge bg-secondary mb-2 rounded-pill">آخرین ثبت: هرگز</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <strong>ثبت نشده</strong></p>
+                                                <p>زمان بعدی تعویض: <strong>ثبت نشده</strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                         <div class="add-services">
                             <a class="text-white" href="{{route('service.lastik',$id)}}">
@@ -430,7 +634,7 @@
                     </div>
                 </div>
 
-                <!-- Single Top Service Card -->
+                <!-- Single bime Service Card -->
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
@@ -441,15 +645,46 @@
                             <h6 class="mt-2 d-block text-truncate text-center" style="font-size: 0.9rem;">
                                 یاد آوری بیمه ماشین</h6>
                             <!-- Service info -->
-                            <p class="">
-                                <small>آخرین ثبت سرویس:
-                                    @if(!empty($bime))
-                                        <span>{{$bime->created_at->diffForHumans()}}</span>
-                                    @else
-                                        <strong>ثبت نشده</strong>
-                                    @endif
-                                </small>
-                            </p>
+
+
+                        @if(!empty($bime))
+                            <div class="card timeline-card bg-light mt-3 shadow-sm">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="timeline-text mb-0"><span
+                                                class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
+                                            @if(!empty($romo->time_next))
+                                                <p>زمان بعدی یادآوری: <span>{{$romo->time_next->diffForHumans()}}</span>
+                                                    دیگر </p>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <a class="btn m-1 btn-light shadow-sm" href="{{route('timeline.bime',$id)}}">
+                                            <svg class="bi bi-eye me-2" width="16" height="16" viewBox="0 0 16 16"
+                                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                      d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"></path>
+                                                <path fill-rule="evenodd"
+                                                      d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"></path>
+                                            </svg>
+                                            نمایش جزئیات</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        @else
+                            <div class="card timeline-card bg-secondary mt-3 shadow-sm">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="timeline-text mb-0"><span
+                                                class="badge bg-secondary mb-2 rounded-pill">آخرین ثبت: هرگز</span>
+                                            <p>زمان بعدی یادآوری: <strong>ثبت نشده</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                         </div>
                         <div class="add-services">
                             <a class="text-white" href="{{route('service.bime',$id)}}">

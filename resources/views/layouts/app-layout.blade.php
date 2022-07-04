@@ -47,9 +47,11 @@
         <!-- Header Content -->
         <div class="header-content position-relative d-flex align-items-center justify-content-between">
             <!-- Back Button -->
-            <div class="back-button">
-                <a href="{{url()->previous()}}"><i class="bi bi-arrow-left-short text-white"></i></a>
-            </div>
+            @if(Request::url() != route('app'))
+                <div class="back-button">
+                    <a href="{{url()->previous()}}"><i class="bi bi-arrow-left-short text-white"></i></a>
+                </div>
+            @endif
             <!-- Page Title -->
             <div class="page-heading">
                 <a href="{{route('app')}}"><h6 class="mb-0 text-white">خودرو هوشمند</h6></a>
