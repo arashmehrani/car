@@ -118,30 +118,30 @@
                                     ->where('plate_id', $plate->id)->where('type','لنت')->latest()->first();
                                     @endphp
                                     <p>
-                                        <small>تعویض روغن موتور در کیلومتر:
+                                        <small>تعویض بعدی روغن موتور تا:
                                             <span>
                                             @if(!empty($romo))
-                                                <strong>{{$romo->km_next}}</strong>
+                                                <strong>{{\Carbon\Carbon::parse($romo->time_next)->diffForHumans()}}</strong>
                                             @else
                                                     <strong>ثبت نشده</strong>
                                             @endif
                                             </span>
                                         </small>
                                         <br/>
-                                        <small>تعویض تسمه تایم در کیلومتر:
+                                        <small>تعویض بعدی تسمه تایم تا:
                                             <span>
                                             @if(!empty($tas))
-                                                    <strong>{{$tas->km_next}}</strong>
+                                                    <strong>{{\Carbon\Carbon::parse($tas->time_next)->diffForHumans()}}</strong>
                                                 @else
                                                     <strong>ثبت نشده</strong>
                                                 @endif
                                             </span>
                                         </small>
                                         <br/>
-                                        <small>تعویض لنت ها در کیلومتر:
+                                        <small>تعویض بعدی لنت ها تا:
                                             <span>
                                             @if(!empty($lent))
-                                                    <strong>{{$lent->km_next}}</strong>
+                                                    <strong>{{\Carbon\Carbon::parse($lent->time_next)->diffForHumans()}}</strong>
                                                 @else
                                                     <strong>ثبت نشده</strong>
                                                 @endif

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\Plate;
+use App\Models\Service;
 use App\Models\Transfer;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -94,6 +96,21 @@ class PlateController extends Controller
             $plate->vin = $request->vin;
             $plate->company = $request->company;
             $plate->save();
+
+            $services = Service::where('user_id', Auth::id())->where('plate_id', $plate->id)->where('passed', false)->get();
+            foreach ($services as $service) {
+                $km_feli = (int)$plate->km_current;
+                $km_zaman_taviz = (int)$service->km_now;
+                $km_zaman_taviz_badi = (int)$service->km_next;
+                $km_between_zaman_taviz_feli = $km_zaman_taviz - $km_feli;
+                $km_mandeh = ($km_zaman_taviz_badi - $km_feli ) + $km_between_zaman_taviz_feli; /// km mandeh to taviz
+                $day_next = $km_mandeh / $plate->km_average;
+                $day_next = (int) round($day_next); /// days mandeh ta taviz
+                $time = Carbon::now()->addDays($day_next);
+                $time = Carbon::parse($time);
+                $service->time_next = $time;
+                $service->save();
+            }
             session()->flash('msg', 'پلاک ویرایش شد');
             return redirect()->route('app');
         } else {

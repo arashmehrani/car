@@ -32,7 +32,7 @@
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
                             <div>
-                                <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="#">
+                                <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="{{route('service.romo',$id)}}">
                                     <img src="{{asset('img/core-img/icon-rm.png')}}" alt="">
                                     <!-- Badge -->{{--<span class="badge bg-warning">جدید</span>--}}</a>
                                 <!-- Service Title -->
@@ -48,7 +48,9 @@
                                             <div class="timeline-text mb-0"><span
                                                     class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
                                                 <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$romo->km_next}}</span></p>
-                                                <p>زمان بعدی تعویض: <span>{{$romo->km_next}}</span> دیگر </p>
+                                                <p>زمان بعدی تعویض:
+                                                    <span>{{\Carbon\Carbon::parse($romo->time_next)->diffForHumans()}}</span>
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-center">
@@ -102,7 +104,7 @@
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
-                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="#">
+                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="{{route('service.rogi',$id)}}">
                                 <img src="{{asset('img/core-img/icon-rg.png')}}" alt="">
                                 <!-- Badge -->{{--<span class="badge bg-warning">جدید</span>--}}</a>
                             <!-- Service Title -->
@@ -114,9 +116,11 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between">
                                             <div class="timeline-text mb-0"><span
-                                                    class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
-                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$romo->km_next}}</span></p>
-                                                <p>زمان بعدی تعویض: <span>{{$romo->km_next}}</span> دیگر </p>
+                                                    class="badge bg-secondary mb-2 rounded-pill">{{$rogi->created_at->diffForHumans()}}</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$rogi->km_next}}</span></p>
+                                                <p>زمان بعدی تعویض:
+                                                    <span>{{\Carbon\Carbon::parse($rogi->time_next)->diffForHumans()}}</span>
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-center">
@@ -169,7 +173,7 @@
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
-                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="#">
+                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="{{route('service.tas',$id)}}">
                                 <img src="{{asset('img/core-img/icon-tt.png')}}" alt="">
                                 <!-- Badge -->{{--<span class="badge bg-warning">جدید</span>--}}</a>
                             <!-- Service Title -->
@@ -181,9 +185,11 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between">
                                             <div class="timeline-text mb-0"><span
-                                                    class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
-                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$romo->km_next}}</span></p>
-                                                <p>زمان بعدی تعویض: <span>{{$romo->km_next}}</span> دیگر </p>
+                                                    class="badge bg-secondary mb-2 rounded-pill">{{$tas->created_at->diffForHumans()}}</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$tas->km_next}}</span></p>
+                                                <p>زمان بعدی تعویض:
+                                                    <span>{{\Carbon\Carbon::parse($tas->time_next)->diffForHumans()}}</span>
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-center">
@@ -236,7 +242,7 @@
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
-                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="#">
+                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="{{route('service.sham',$id)}}">
                                 <img src="{{asset('img/core-img/icon-sh.png')}}" alt="">
                                 <!-- Badge -->{{--<span class="badge bg-warning">جدید</span>--}}</a>
                             <!-- Service Title -->
@@ -248,9 +254,11 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between">
                                             <div class="timeline-text mb-0"><span
-                                                    class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
-                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$romo->km_next}}</span></p>
-                                                <p>زمان بعدی تعویض: <span>{{$romo->km_next}}</span> دیگر </p>
+                                                    class="badge bg-secondary mb-2 rounded-pill">{{$sham->created_at->diffForHumans()}}</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$sham->km_next}}</span></p>
+                                                <p>زمان بعدی تعویض:
+                                                    <span>{{\Carbon\Carbon::parse($sham->time_next)->diffForHumans()}}</span>
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-center">
@@ -303,7 +311,7 @@
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
-                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="#">
+                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="{{route('service.lent',$id)}}">
                                 <img src="{{asset('img/core-img/icon-ln.png')}}" alt="">
                                 <!-- Badge -->{{--<span class="badge bg-warning">جدید</span>--}}</a>
                             <!-- Service Title -->
@@ -315,9 +323,11 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between">
                                             <div class="timeline-text mb-0"><span
-                                                    class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
-                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$romo->km_next}}</span></p>
-                                                <p>زمان بعدی تعویض: <span>{{$romo->km_next}}</span> دیگر </p>
+                                                    class="badge bg-secondary mb-2 rounded-pill">{{$lent->created_at->diffForHumans()}}</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$lent->km_next}}</span></p>
+                                                <p>زمان بعدی تعویض:
+                                                    <span>{{\Carbon\Carbon::parse($lent->time_next)->diffForHumans()}}</span>
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-center">
@@ -370,7 +380,7 @@
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
-                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="#">
+                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="{{route('service.battery',$id)}}">
                                 <img src="{{asset('img/core-img/icon-bt.png')}}" alt="">
                                 <!-- Badge -->{{--<span class="badge bg-warning">جدید</span>--}}</a>
                             <!-- Service Title -->
@@ -382,9 +392,12 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between">
                                             <div class="timeline-text mb-0"><span
-                                                    class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
-                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$romo->km_next}}</span></p>
-                                                <p>زمان بعدی تعویض: <span>{{$romo->km_next}}</span> دیگر </p>
+                                                    class="badge bg-secondary mb-2 rounded-pill">{{$battery->created_at->diffForHumans()}}</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$battery->km_next}}</span>
+                                                </p>
+                                                <p>زمان بعدی تعویض:
+                                                    <span>{{\Carbon\Carbon::parse($battery->time_next)->diffForHumans()}}</span>
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-center">
@@ -437,7 +450,7 @@
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
-                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="#">
+                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="{{route('service.clutch',$id)}}">
                                 <img src="{{asset('img/core-img/icon-sk.png')}}" alt="">
                                 <!-- Badge -->{{--<span class="badge bg-warning">جدید</span>--}}</a>
                             <!-- Service Title -->
@@ -449,9 +462,12 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between">
                                             <div class="timeline-text mb-0"><span
-                                                    class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
-                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$romo->km_next}}</span></p>
-                                                <p>زمان بعدی تعویض: <span>{{$romo->km_next}}</span> دیگر </p>
+                                                    class="badge bg-secondary mb-2 rounded-pill">{{$clutch->created_at->diffForHumans()}}</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$clutch->km_next}}</span>
+                                                </p>
+                                                <p>زمان بعدی تعویض:
+                                                    <span>{{\Carbon\Carbon::parse($clutch->time_next)->diffForHumans()}}</span>
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-center">
@@ -504,7 +520,7 @@
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
-                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="#">
+                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="{{route('service.vasher',$id)}}">
                                 <img src="{{asset('img/core-img/icon-vs.png')}}" alt="">
                                 <!-- Badge -->{{--<span class="badge bg-warning">جدید</span>--}}</a>
                             <!-- Service Title -->
@@ -516,9 +532,12 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between">
                                             <div class="timeline-text mb-0"><span
-                                                    class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
-                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$romo->km_next}}</span></p>
-                                                <p>زمان بعدی تعویض: <span>{{$romo->km_next}}</span> دیگر </p>
+                                                    class="badge bg-secondary mb-2 rounded-pill">{{$vasher->created_at->diffForHumans()}}</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$vasher->km_next}}</span>
+                                                </p>
+                                                <p>زمان بعدی تعویض:
+                                                    <span>{{\Carbon\Carbon::parse($vasher->time_next)->diffForHumans()}}</span>
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-center">
@@ -571,7 +590,7 @@
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
-                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="#">
+                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="{{route('service.lastik',$id)}}">
                                 <img src="{{asset('img/core-img/icon-ls.png')}}" alt="">
                                 <!-- Badge -->{{--<span class="badge bg-warning">جدید</span>--}}</a>
                             <!-- Service Title -->
@@ -583,9 +602,12 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between">
                                             <div class="timeline-text mb-0"><span
-                                                    class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
-                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$romo->km_next}}</span></p>
-                                                <p>زمان بعدی تعویض: <span>{{$romo->km_next}}</span> دیگر </p>
+                                                    class="badge bg-secondary mb-2 rounded-pill">{{$lastik->created_at->diffForHumans()}}</span>
+                                                <p class="mb-1">کیلومتر بعدی تعویض: <span>{{$lastik->km_next}}</span>
+                                                </p>
+                                                <p>زمان بعدی تعویض:
+                                                    <span>{{\Carbon\Carbon::parse($lastik->time_next)->diffForHumans()}}</span>
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-center">
@@ -638,7 +660,7 @@
                 <div class="col-12 col-sm-12 col-lg-6">
                     <div class="card single-product-card shadow-sm">
                         <div class="card-body p-3">
-                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="#">
+                            <!-- Service Thumbnail --><a class="product-thumbnail d-block text-center" href="{{route('service.bime',$id)}}">
                                 <img src="{{asset('img/core-img/icon-bm.png')}}" alt="">
                                 <!-- Badge -->{{--<span class="badge bg-warning">جدید</span>--}}</a>
                             <!-- Service Title -->
@@ -647,44 +669,46 @@
                             <!-- Service info -->
 
 
-                        @if(!empty($bime))
-                            <div class="card timeline-card bg-light mt-3 shadow-sm">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <div class="timeline-text mb-0"><span
-                                                class="badge bg-secondary mb-2 rounded-pill">{{$romo->created_at->diffForHumans()}}</span>
-                                            @if(!empty($romo->time_next))
-                                                <p>زمان بعدی یادآوری: <span>{{$romo->time_next->diffForHumans()}}</span>
-                                                    دیگر </p>
-                                            @endif
+                            @if(!empty($bime))
+                                <div class="card timeline-card bg-light mt-3 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="timeline-text mb-0"><span
+                                                    class="badge bg-secondary mb-2 rounded-pill">{{$bime->created_at->diffForHumans()}}</span>
+                                                @if(!empty($bime->time_next))
+                                                    <p>زمان بعدی یادآوری:
+                                                        <span>{{$bime->time_next->diffForHumans()}}</span>
+                                                        دیگر </p>
+                                                @endif
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="d-flex justify-content-center">
-                                        <a class="btn m-1 btn-light shadow-sm" href="{{route('timeline.bime',$id)}}">
-                                            <svg class="bi bi-eye me-2" width="16" height="16" viewBox="0 0 16 16"
-                                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd"
-                                                      d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"></path>
-                                                <path fill-rule="evenodd"
-                                                      d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"></path>
-                                            </svg>
-                                            نمایش جزئیات</a>
-                                    </div>
+                                        <div class="d-flex justify-content-center">
+                                            <a class="btn m-1 btn-light shadow-sm"
+                                               href="{{route('timeline.bime',$id)}}">
+                                                <svg class="bi bi-eye me-2" width="16" height="16" viewBox="0 0 16 16"
+                                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                          d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"></path>
+                                                    <path fill-rule="evenodd"
+                                                          d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"></path>
+                                                </svg>
+                                                نمایش جزئیات</a>
+                                        </div>
 
+                                    </div>
                                 </div>
-                            </div>
-                        @else
-                            <div class="card timeline-card bg-secondary mt-3 shadow-sm">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <div class="timeline-text mb-0"><span
-                                                class="badge bg-secondary mb-2 rounded-pill">آخرین ثبت: هرگز</span>
-                                            <p>زمان بعدی یادآوری: <strong>ثبت نشده</strong></p>
+                            @else
+                                <div class="card timeline-card bg-secondary mt-3 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="timeline-text mb-0"><span
+                                                    class="badge bg-secondary mb-2 rounded-pill">آخرین ثبت: هرگز</span>
+                                                <p>زمان بعدی یادآوری: <strong>ثبت نشده</strong></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endif
+                            @endif
                         </div>
                         <div class="add-services">
                             <a class="text-white" href="{{route('service.bime',$id)}}">

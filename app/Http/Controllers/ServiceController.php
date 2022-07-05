@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Plate;
 use App\Models\Service;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -123,6 +124,16 @@ class ServiceController extends Controller
             $service->user_id = Auth::id();
             $service->plate_id = $plate->id;
             $service->passed = false;
+            $km_feli = (int)$plate->km_current;
+            $km_zaman_taviz = (int)$service->km_now;
+            $km_zaman_taviz_badi = (int)$service->km_next;
+            $km_between_zaman_taviz_feli = $km_zaman_taviz - $km_feli;
+            $km_mandeh = ($km_zaman_taviz_badi - $km_feli ) + $km_between_zaman_taviz_feli; /// km mandeh to taviz
+            $day_next = $km_mandeh / $plate->km_average;
+            $day_next = (int) round($day_next); /// days mandeh ta taviz
+            $time = Carbon::now()->addDays($day_next);
+            $time = Carbon::parse($time);
+            $service->time_next = $time;
             $service->save();
             session()->flash('msg', 'سرویس جدید ثبت شد');
             return redirect()->route('service.select', $plate->id);
@@ -184,6 +195,15 @@ class ServiceController extends Controller
                 $meta["tas_ac"] = "1";
             }
             $service->meta = $meta;
+            $km_feli = (int)$plate->km_current;
+            $km_zaman_taviz = (int)$service->km_now;
+            $km_zaman_taviz_badi = (int)$service->km_next;
+            $km_between_zaman_taviz_feli = $km_zaman_taviz - $km_feli;
+            $km_mandeh = ($km_zaman_taviz_badi - $km_feli ) + $km_between_zaman_taviz_feli; /// km mandeh to taviz
+            $day_next = $km_mandeh / $plate->km_average;
+            $day_next = (int) round($day_next); /// days mandeh ta taviz
+            $time = now()->addDays($day_next);
+            $service->time_next = $time;
             $service->save();
             session()->flash('msg', 'سرویس جدید ثبت شد');
             return redirect()->route('service.select', $plate->id);
@@ -239,6 +259,15 @@ class ServiceController extends Controller
                 $meta["wire"] = "1";
             }
             $service->meta = $meta;
+            $km_feli = (int)$plate->km_current;
+            $km_zaman_taviz = (int)$service->km_now;
+            $km_zaman_taviz_badi = (int)$service->km_next;
+            $km_between_zaman_taviz_feli = $km_zaman_taviz - $km_feli;
+            $km_mandeh = ($km_zaman_taviz_badi - $km_feli ) + $km_between_zaman_taviz_feli; /// km mandeh to taviz
+            $day_next = $km_mandeh / $plate->km_average;
+            $day_next = (int) round($day_next); /// days mandeh ta taviz
+            $time = now()->addDays($day_next);
+            $service->time_next = $time;
             $service->save();
             session()->flash('msg', 'سرویس جدید ثبت شد');
             return redirect()->route('service.select', $plate->id);
@@ -294,6 +323,15 @@ class ServiceController extends Controller
                 $meta["lent_back"] = "1";
             }
             $service->meta = $meta;
+            $km_feli = (int)$plate->km_current;
+            $km_zaman_taviz = (int)$service->km_now;
+            $km_zaman_taviz_badi = (int)$service->km_next;
+            $km_between_zaman_taviz_feli = $km_zaman_taviz - $km_feli;
+            $km_mandeh = ($km_zaman_taviz_badi - $km_feli ) + $km_between_zaman_taviz_feli; /// km mandeh to taviz
+            $day_next = $km_mandeh / $plate->km_average;
+            $day_next = (int) round($day_next); /// days mandeh ta taviz
+            $time = now()->addDays($day_next);
+            $service->time_next = $time;
             $service->save();
             session()->flash('msg', 'سرویس جدید ثبت شد');
             return redirect()->route('service.select', $plate->id);
@@ -341,6 +379,15 @@ class ServiceController extends Controller
             $service->user_id = Auth::id();
             $service->plate_id = $plate->id;
             $service->passed = false;
+            $km_feli = (int)$plate->km_current;
+            $km_zaman_taviz = (int)$service->km_now;
+            $km_zaman_taviz_badi = (int)$service->km_next;
+            $km_between_zaman_taviz_feli = $km_zaman_taviz - $km_feli;
+            $km_mandeh = ($km_zaman_taviz_badi - $km_feli ) + $km_between_zaman_taviz_feli; /// km mandeh to taviz
+            $day_next = $km_mandeh / $plate->km_average;
+            $day_next = (int) round($day_next); /// days mandeh ta taviz
+            $time = now()->addDays($day_next);
+            $service->time_next = $time;
             $service->save();
             session()->flash('msg', 'سرویس جدید ثبت شد');
             return redirect()->route('service.select', $plate->id);
@@ -388,6 +435,15 @@ class ServiceController extends Controller
             $service->user_id = Auth::id();
             $service->plate_id = $plate->id;
             $service->passed = false;
+            $km_feli = (int)$plate->km_current;
+            $km_zaman_taviz = (int)$service->km_now;
+            $km_zaman_taviz_badi = (int)$service->km_next;
+            $km_between_zaman_taviz_feli = $km_zaman_taviz - $km_feli;
+            $km_mandeh = ($km_zaman_taviz_badi - $km_feli ) + $km_between_zaman_taviz_feli; /// km mandeh to taviz
+            $day_next = $km_mandeh / $plate->km_average;
+            $day_next = (int) round($day_next); /// days mandeh ta taviz
+            $time = now()->addDays($day_next);
+            $service->time_next = $time;
             $service->save();
             session()->flash('msg', 'سرویس جدید ثبت شد');
             return redirect()->route('service.select', $plate->id);
@@ -435,6 +491,15 @@ class ServiceController extends Controller
             $service->user_id = Auth::id();
             $service->plate_id = $plate->id;
             $service->passed = false;
+            $km_feli = (int)$plate->km_current;
+            $km_zaman_taviz = (int)$service->km_now;
+            $km_zaman_taviz_badi = (int)$service->km_next;
+            $km_between_zaman_taviz_feli = $km_zaman_taviz - $km_feli;
+            $km_mandeh = ($km_zaman_taviz_badi - $km_feli ) + $km_between_zaman_taviz_feli; /// km mandeh to taviz
+            $day_next = $km_mandeh / $plate->km_average;
+            $day_next = (int) round($day_next); /// days mandeh ta taviz
+            $time = now()->addDays($day_next);
+            $service->time_next = $time;
             $service->save();
             session()->flash('msg', 'سرویس جدید ثبت شد');
             return redirect()->route('service.select', $plate->id);
@@ -490,6 +555,15 @@ class ServiceController extends Controller
                 $meta["lastik_back"] = "1";
             }
             $service->meta = $meta;
+            $km_feli = (int)$plate->km_current;
+            $km_zaman_taviz = (int)$service->km_now;
+            $km_zaman_taviz_badi = (int)$service->km_next;
+            $km_between_zaman_taviz_feli = $km_zaman_taviz - $km_feli;
+            $km_mandeh = ($km_zaman_taviz_badi - $km_feli ) + $km_between_zaman_taviz_feli; /// km mandeh to taviz
+            $day_next = $km_mandeh / $plate->km_average;
+            $day_next = (int) round($day_next); /// days mandeh ta taviz
+            $time = now()->addDays($day_next);
+            $service->time_next = $time;
             $service->save();
             session()->flash('msg', 'سرویس جدید ثبت شد');
             return redirect()->route('service.select', $plate->id);
