@@ -14,7 +14,7 @@ class ServiceController extends Controller
     {
         $plate = Plate::where('id', $id)->where('user_id', Auth::id())->first();
         if (!empty($plate)) {
-            return view('service.service-romo', compact('id'));
+            return view('service.service-romo', compact('id', 'plate'));
         }
         return redirect()->route('app');
 
@@ -22,14 +22,23 @@ class ServiceController extends Controller
 
     public function romoPost(Request $request)
     {
-        $validated = $request->validate([
+/*        $validated = $request->validate([
             'title' => 'required|string',
             'km_now' => 'required|numeric',
             'km_next' => 'required|numeric',
             'workshop' => 'nullable|string',
             'price' => 'nullable|numeric',
-        ]);
+        ]);*/
+        if ($request->km_now >= $request->km_next) {
+            return redirect()->back()
+                ->withErrors(['km_next' => 'کیلومتر زمان تعویض نمی تواند کوچکتر یا برابر کیلومتر زمان تعویض باشد.']);
+        }
         $plate = Plate::where('id', $request->plate_id)->where('user_id', Auth::id())->first();
+        if ($request->km_now > $plate->km_current) {
+            return redirect()->back()
+                ->withErrors(['km_now' => 'کیلومتر زمان تعویض شما نمیتواند از کیلومتر فعلی خودرو بیشتر باشد. لطفا کیلومتر فعلی را از بخش ویرایش پلاک بروز نمایید.']);
+        }
+
         if (!empty($plate)) {
             $service = new Service();
             $service->title = $request->title;
@@ -56,6 +65,17 @@ class ServiceController extends Controller
                 $meta["ro_hydro"] = "1";
             }
             $service->meta = $meta;
+
+            $km_feli = (int)$plate->km_current;
+            $km_zaman_taviz = (int)$service->km_now;
+            $km_zaman_taviz_badi = (int)$service->km_next;
+            $km_between_zaman_taviz_feli = $km_zaman_taviz - $km_feli;
+            $km_mandeh = ($km_zaman_taviz_badi - $km_feli ) + $km_between_zaman_taviz_feli; /// km mandeh to taviz
+            $day_next = $km_mandeh / $plate->km_average;
+            $day_next = (int) round($day_next); /// days mandeh ta taviz
+            $time = now()->addDays($day_next);
+            $service->time_next = $time;
+
             $service->save();
             session()->flash('msg', 'سرویس جدید ثبت شد');
             return redirect()->route('service.select', $plate->id);
@@ -67,7 +87,7 @@ class ServiceController extends Controller
     {
         $plate = Plate::where('id', $id)->where('user_id', Auth::id())->first();
         if (!empty($plate)) {
-            return view('service.service-rogi', compact('id'));
+            return view('service.service-rogi', compact('id', 'plate'));
         }
         return redirect()->route('app');
 
@@ -82,7 +102,15 @@ class ServiceController extends Controller
             'workshop' => 'nullable|string',
             'price' => 'nullable|numeric',
         ]);
+        if ($request->km_now >= $request->km_next) {
+            return redirect()->back()
+                ->withErrors(['km_next' => 'کیلومتر زمان تعویض نمی تواند کوچکتر یا برابر کیلومتر زمان تعویض باشد.']);
+        }
         $plate = Plate::where('id', $request->plate_id)->where('user_id', Auth::id())->first();
+        if ($request->km_now > $plate->km_current) {
+            return redirect()->back()
+                ->withErrors(['km_now' => 'کیلومتر زمان تعویض شما نمیتواند از کیلومتر فعلی خودرو بیشتر باشد. لطفا کیلومتر فعلی را از بخش ویرایش پلاک بروز نمایید.']);
+        }
         if (!empty($plate)) {
             $service = new Service();
             $service->title = $request->title;
@@ -106,7 +134,7 @@ class ServiceController extends Controller
     {
         $plate = Plate::where('id', $id)->where('user_id', Auth::id())->first();
         if (!empty($plate)) {
-            return view('service.service-tas', compact('id'));
+            return view('service.service-tas', compact('id','plate'));
         }
         return redirect()->route('app');
 
@@ -121,7 +149,15 @@ class ServiceController extends Controller
             'workshop' => 'nullable|string',
             'price' => 'nullable|numeric',
         ]);
+        if ($request->km_now >= $request->km_next) {
+            return redirect()->back()
+                ->withErrors(['km_next' => 'کیلومتر زمان تعویض نمی تواند کوچکتر یا برابر کیلومتر زمان تعویض باشد.']);
+        }
         $plate = Plate::where('id', $request->plate_id)->where('user_id', Auth::id())->first();
+        if ($request->km_now > $plate->km_current) {
+            return redirect()->back()
+                ->withErrors(['km_now' => 'کیلومتر زمان تعویض شما نمیتواند از کیلومتر فعلی خودرو بیشتر باشد. لطفا کیلومتر فعلی را از بخش ویرایش پلاک بروز نمایید.']);
+        }
         if (!empty($plate)) {
             $service = new Service();
             $service->title = $request->title;
@@ -159,7 +195,7 @@ class ServiceController extends Controller
     {
         $plate = Plate::where('id', $id)->where('user_id', Auth::id())->first();
         if (!empty($plate)) {
-            return view('service.service-sham', compact('id'));
+            return view('service.service-sham', compact('id','plate'));
         }
         return redirect()->route('app');
 
@@ -174,7 +210,15 @@ class ServiceController extends Controller
             'workshop' => 'nullable|string',
             'price' => 'nullable|numeric',
         ]);
+        if ($request->km_now >= $request->km_next) {
+            return redirect()->back()
+                ->withErrors(['km_next' => 'کیلومتر زمان تعویض نمی تواند کوچکتر یا برابر کیلومتر زمان تعویض باشد.']);
+        }
         $plate = Plate::where('id', $request->plate_id)->where('user_id', Auth::id())->first();
+        if ($request->km_now > $plate->km_current) {
+            return redirect()->back()
+                ->withErrors(['km_now' => 'کیلومتر زمان تعویض شما نمیتواند از کیلومتر فعلی خودرو بیشتر باشد. لطفا کیلومتر فعلی را از بخش ویرایش پلاک بروز نمایید.']);
+        }
         if (!empty($plate)) {
             $service = new Service();
             $service->title = $request->title;
@@ -206,7 +250,7 @@ class ServiceController extends Controller
     {
         $plate = Plate::where('id', $id)->where('user_id', Auth::id())->first();
         if (!empty($plate)) {
-            return view('service.service-lent', compact('id'));
+            return view('service.service-lent', compact('id','plate'));
         }
         return redirect()->route('app');
 
@@ -221,7 +265,15 @@ class ServiceController extends Controller
             'workshop' => 'nullable|string',
             'price' => 'nullable|numeric',
         ]);
+        if ($request->km_now >= $request->km_next) {
+            return redirect()->back()
+                ->withErrors(['km_next' => 'کیلومتر زمان تعویض نمی تواند کوچکتر یا برابر کیلومتر زمان تعویض باشد.']);
+        }
         $plate = Plate::where('id', $request->plate_id)->where('user_id', Auth::id())->first();
+        if ($request->km_now > $plate->km_current) {
+            return redirect()->back()
+                ->withErrors(['km_now' => 'کیلومتر زمان تعویض شما نمیتواند از کیلومتر فعلی خودرو بیشتر باشد. لطفا کیلومتر فعلی را از بخش ویرایش پلاک بروز نمایید.']);
+        }
         if (!empty($plate)) {
             $service = new Service();
             $service->title = $request->title;
@@ -253,7 +305,7 @@ class ServiceController extends Controller
     {
         $plate = Plate::where('id', $id)->where('user_id', Auth::id())->first();
         if (!empty($plate)) {
-            return view('service.service-battery', compact('id'));
+            return view('service.service-battery', compact('id','plate'));
         }
         return redirect()->route('app');
 
@@ -268,7 +320,15 @@ class ServiceController extends Controller
             'workshop' => 'nullable|string',
             'price' => 'nullable|numeric',
         ]);
+        if ($request->km_now >= $request->km_next) {
+            return redirect()->back()
+                ->withErrors(['km_next' => 'کیلومتر زمان تعویض نمی تواند کوچکتر یا برابر کیلومتر زمان تعویض باشد.']);
+        }
         $plate = Plate::where('id', $request->plate_id)->where('user_id', Auth::id())->first();
+        if ($request->km_now > $plate->km_current) {
+            return redirect()->back()
+                ->withErrors(['km_now' => 'کیلومتر زمان تعویض شما نمیتواند از کیلومتر فعلی خودرو بیشتر باشد. لطفا کیلومتر فعلی را از بخش ویرایش پلاک بروز نمایید.']);
+        }
         if (!empty($plate)) {
             $service = new Service();
             $service->title = $request->title;
@@ -292,7 +352,7 @@ class ServiceController extends Controller
     {
         $plate = Plate::where('id', $id)->where('user_id', Auth::id())->first();
         if (!empty($plate)) {
-            return view('service.service-clutch', compact('id'));
+            return view('service.service-clutch', compact('id','plate'));
         }
         return redirect()->route('app');
 
@@ -307,7 +367,15 @@ class ServiceController extends Controller
             'workshop' => 'nullable|string',
             'price' => 'nullable|numeric',
         ]);
+        if ($request->km_now >= $request->km_next) {
+            return redirect()->back()
+                ->withErrors(['km_next' => 'کیلومتر زمان تعویض نمی تواند کوچکتر یا برابر کیلومتر زمان تعویض باشد.']);
+        }
         $plate = Plate::where('id', $request->plate_id)->where('user_id', Auth::id())->first();
+        if ($request->km_now > $plate->km_current) {
+            return redirect()->back()
+                ->withErrors(['km_now' => 'کیلومتر زمان تعویض شما نمیتواند از کیلومتر فعلی خودرو بیشتر باشد. لطفا کیلومتر فعلی را از بخش ویرایش پلاک بروز نمایید.']);
+        }
         if (!empty($plate)) {
             $service = new Service();
             $service->title = $request->title;
@@ -331,7 +399,7 @@ class ServiceController extends Controller
     {
         $plate = Plate::where('id', $id)->where('user_id', Auth::id())->first();
         if (!empty($plate)) {
-            return view('service.service-vasher', compact('id'));
+            return view('service.service-vasher', compact('id','plate'));
         }
         return redirect()->route('app');
 
@@ -346,7 +414,15 @@ class ServiceController extends Controller
             'workshop' => 'nullable|string',
             'price' => 'nullable|numeric',
         ]);
+        if ($request->km_now >= $request->km_next) {
+            return redirect()->back()
+                ->withErrors(['km_next' => 'کیلومتر زمان تعویض نمی تواند کوچکتر یا برابر کیلومتر زمان تعویض باشد.']);
+        }
         $plate = Plate::where('id', $request->plate_id)->where('user_id', Auth::id())->first();
+        if ($request->km_now > $plate->km_current) {
+            return redirect()->back()
+                ->withErrors(['km_now' => 'کیلومتر زمان تعویض شما نمیتواند از کیلومتر فعلی خودرو بیشتر باشد. لطفا کیلومتر فعلی را از بخش ویرایش پلاک بروز نمایید.']);
+        }
         if (!empty($plate)) {
             $service = new Service();
             $service->title = $request->title;
@@ -370,7 +446,7 @@ class ServiceController extends Controller
     {
         $plate = Plate::where('id', $id)->where('user_id', Auth::id())->first();
         if (!empty($plate)) {
-            return view('service.service-lastik', compact('id'));
+            return view('service.service-lastik', compact('id','plate'));
         }
         return redirect()->route('app');
 
@@ -385,7 +461,15 @@ class ServiceController extends Controller
             'workshop' => 'nullable|string',
             'price' => 'nullable|numeric',
         ]);
+        if ($request->km_now >= $request->km_next) {
+            return redirect()->back()
+                ->withErrors(['km_next' => 'کیلومتر زمان تعویض نمی تواند کوچکتر یا برابر کیلومتر زمان تعویض باشد.']);
+        }
         $plate = Plate::where('id', $request->plate_id)->where('user_id', Auth::id())->first();
+        if ($request->km_now > $plate->km_current) {
+            return redirect()->back()
+                ->withErrors(['km_now' => 'کیلومتر زمان تعویض شما نمیتواند از کیلومتر فعلی خودرو بیشتر باشد. لطفا کیلومتر فعلی را از بخش ویرایش پلاک بروز نمایید.']);
+        }
         if (!empty($plate)) {
             $service = new Service();
             $service->title = $request->title;

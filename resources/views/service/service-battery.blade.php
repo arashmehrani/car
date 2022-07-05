@@ -39,7 +39,7 @@
                     <div class="form-group">
                         <label class="form-label" for="km_next">کیلومتر تعویض بعدی</label>
                         <input class="form-control" id="km_next" name="km_next" type="number"
-                               value="{{old('km_next')}}" required
+                               value="{{old('km_next',$plate->km_current)}}" required
                                oninput="javascript: this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                pattern="[0-9]">
                     </div>

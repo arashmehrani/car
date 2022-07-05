@@ -27,7 +27,7 @@
                     <div class="form-group">
                         <label class="form-label" for="km_now">کیلومتر زمان تعویض</label>
                         <input class="form-control" id="km_now" name="km_now" type="number"
-                               value="{{old('km_now')}}" required
+                               value="{{old('km_now',$plate->km_current)}}" required
                                oninput="javascript: this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                pattern="[0-9]">
                     </div>
