@@ -23,13 +23,13 @@ class ServiceController extends Controller
 
     public function romoPost(Request $request)
     {
-/*        $validated = $request->validate([
+        $validated = $request->validate([
             'title' => 'required|string',
             'km_now' => 'required|numeric',
             'km_next' => 'required|numeric',
             'workshop' => 'nullable|string',
             'price' => 'nullable|numeric',
-        ]);*/
+        ]);
         if ($request->km_now >= $request->km_next) {
             return redirect()->back()
                 ->withErrors(['km_next' => 'کیلومتر زمان تعویض نمی تواند کوچکتر یا برابر کیلومتر زمان تعویض باشد.']);
